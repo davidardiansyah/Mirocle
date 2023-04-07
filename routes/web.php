@@ -16,25 +16,24 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
-Route::get('/', function(){
-    return redirect('fisioterapis');
+Route::middleware(['auth'])->group(function () {
+    Route::prefix('fisioterapis')->controller(FisioTerapisController::class)->group(function (){
+        Route::get('/',"index")->name('fisioterapis.index');
+        Route::get('/data-pasien',"data")->name('fisioterapis.data');
+        Route::get('/input-pasien',"input")->name('fisioterapis.input');
+        Route::get('/riwayat-pasien',"riwayat")->name('fisioterapis.riwayat');
+    });
+    
+    Route::prefix('pasien')->controller(PasienController::class)->group(function (){
+        Route::get('/', "index")->name('pasien.index');
+        Route::get('/data', "biodata")->name('pasien.biodata');
+        Route::get('/input', "grafik")->name('pasien.grafik');
+    });
 });
 
-Route::get('/fisioterapis',[FisioTerapisController::class,"index"])->name('fisioterapis.index');
-
-Route::get('/fisioterapis/data-pasien',[FisioTerapisController::class,"data"])->name('fisioterapis.data');
-
-Route::get('/fisioterapis/input-pasien',[FisioTerapisController::class,"input"])->name('fisioterapis.input');
-
-Route::get('/fisioterapis/riwayat-pasien',[FisioTerapisController::class,"riwayat"])->name('fisioterapis.riwayat');
-
-
-Route::get('/pasien',[PasienController::class,"index"])->name('pasien.index');
-
-Route::get('/pasien/data',[PasienController::class,"biodata"])->name('pasien.biodata');
-
-Route::get('/pasien/input',[PasienController::class,"grafik"])->name('pasien.grafik');
-
-
-Auth::routes();
+Route::get('/', function () {
+    return redirect('fisioterapis');
+});
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

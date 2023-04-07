@@ -64,12 +64,35 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item active">
                 <div class="dropdown-divider"></div>
-                <a class="nav-link" href="#" data-toggle="modal" data-target="#logout">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
                     <i class="fas fa-sign-out-alt"></i>
-                    <span>Logout</span>
+                    <span>Logout</span></a>
                 </a>
             </li>
+            <!-- Logout Modal-->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">Pilih "Logout" jika Anda ingin mengakhiri sesi ini.</div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button class="btn btn-primary" type="submit">Logout</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </ul>
+
         <!-- End of Sidebar -->
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -143,8 +166,8 @@
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="d-none d-lg-inline small mr-2 text-gray-600">Dr. Adre Mayza
-                                        Rachman</span>
+                                    <span
+                                        class="d-none d-lg-inline small mr-2 text-gray-600">{{ auth()->user()->name }}</span>
                                     <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                                 </a>
                                 <!-- Dropdown - User Information -->

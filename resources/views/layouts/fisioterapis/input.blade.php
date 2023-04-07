@@ -4,23 +4,7 @@
     Input Pasien
 @endsection
 
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Main Content -->
-            <div id="content">
-                <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light topbar static-top mb-4 bg-white shadow">
-                    <!-- Begin Page Content -->
-                    <div class="container-fluid">
-
-                        <!-- Page Heading -->
-                        <div class="d-sm-flex align-items-center justify-content-between my-4">
-                            <h1 class="h3 mt-3 text-gray-800">Input Pasien</h1>
-                        </div>
-                    </div>
-                </nav>
-
+@section('content')
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
@@ -58,7 +42,4 @@
                             </div>
                         </div>
                     </div>
-
-</body>
-
-</html>
+@endsection
