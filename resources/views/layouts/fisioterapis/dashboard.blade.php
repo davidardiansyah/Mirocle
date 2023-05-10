@@ -61,30 +61,36 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
+<<<<<<< HEAD
                     <div class="chart-area">
                         <canvas id="total-pasien"></canvas>
                     </div>
+=======
+                    <canvas id="myChartTotal" width="100%" height="30"></canvas>
+>>>>>>> 0f60be89533984c198a20edd45aea371ab551926
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Pie Chart -->
+    <div class="col-xl-4 col-lg-5">
+        <div class="card mb-4 shadow">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header d-flex align-items-center justify-content-between flex-row py-3">
+                <h6 class="font-weight-bold m-0 text-gray-900">Visualisasi Kunjungan Pasien </h6>
+                <div class="dropdown no-arrow">
+                </div>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                <div class="chart-pie pt-4 pb-2">
+                    <canvas id="myPieChart"></canvas>
                 </div>
             </div>
         </div>
-
-
-        <!-- Pie Chart -->
-        <div class="col-xl-4 col-lg-5">
-            <div class="card mb-4 shadow">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header d-flex align-items-center justify-content-between flex-row py-3">
-                    <h6 class="font-weight-bold m-0 text-gray-900">Visualisasi Kunjungan Pasien </h6>
-                    <div class="dropdown no-arrow">
-                    </div>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                    <div class="chart-pie pt-4 pb-2">
-                        <canvas id="myPieChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
     </div>
 @endsection
