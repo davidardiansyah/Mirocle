@@ -23,8 +23,7 @@
                                 <div class="col-auto">
                                     <div class="font-weight-bold text-primary text-uppercase mb-1 text-xs">
                                         Detak Jantung</div>
-                                    <span id="jantung"></span>
-                                    <span style="h5 font-weight-bold mb-0 text-gray-800">BPM</span>
+                                    <span id="jantung">{{ $detakJantung ?? '-' }}</span> BPM</p>
                                 </div>
                             </div>
                         </div>
@@ -170,14 +169,11 @@
     </div>
 @endsection
 @section('jsekstra')
-
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        setInterval(function() {
-            $("#jantung").load("{{ route('detakjantung') }}");
-        }, 1000); //1000ms = 1s
-    });
-</script>
-
+    <script type="text/javascript">
+        $(document).ready(function() {
+            setInterval(function() {
+                $("#jantung").load("{{ route('detakjantung') }}#jantung");
+            }, 1000); //1000ms = 1s
+        });
+    </script>
 @endsection

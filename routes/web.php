@@ -6,7 +6,6 @@ use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SensorLaravel;
-use App\Models\Msensor;
 
 
 /*
@@ -47,7 +46,7 @@ Route::get('/', function () {
 Route::get('/', function () {
     return view('layouts.pasien.dashboard');
 });
-
-Route::get('/detakjantung', [App\Http\Controllers\SensorLaravel::class, 'detakjantung'])->name('detakjantung');
+Route::get('/', [PasienController::class, 'dashboard'])->name('pasien.dashboard');
+Route::get('/detakjantung', [SensorLaravel::class, 'detakjantung'])->name('detakjantung');
 
 

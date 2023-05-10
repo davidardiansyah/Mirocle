@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Msensor;
 use Illuminate\Http\Request;
+use App\Models\Msensor;
+
 
 class SensorLaravel extends Controller
 {
     public function detakjantung()
     {
+        //baca nilai/isi tabel sensor_realtime dan ambil nilai jantung
         $sensor = Msensor::latest()->first();
-        if (!$sensor) {
-            // Jika tidak ada data sensor ditemukan, kembalikan pesan error ke tampilan
-            return view('detakjantung', ['error' => 'Data sensor tidak ditemukan']);
-            // Kirim data sensor ke tampilan detakjantung
-            return view('detakjantung', ['nilaisensor' => $sensor]);
-        }
+        // Kirim data detak jantung terbaru ke halaman dashboard pasien
+        return redirect()->route('pasien.dashboard')->with('detakjantung', $sensor->jantung);
     }
 }
