@@ -122,6 +122,37 @@
                                     <img class="rounded-circle" width="130px"
                                         src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
                                 </div>
+                                <div class="col-md-10 mx-10"><label class="labels">Nama : {{ Auth::user()->name }}
+
+                                    </label></div>
+                                <div class="col-md-10 mx-10"><label class="labels">Umur :
+                                        @if ($profile)
+                                            {{ $profile->umur }}th
+                                        @else
+                                            '-'
+                                        @endif
+                                    </label></div>
+                                <div class="col-md-10 mx-10"><label class="labels">Berat Badan :
+                                        @if ($profile)
+                                            {{ $profile->berat_badan }}Kg
+                                        @else
+                                            '-'
+                                        @endif
+                                    </label></div>
+
+                                <div class="col-md-10 mx-10"><label class="labels">Jenis Kelamin :
+                                        @if ($profile)
+                                            {{ $profile->jenis_kelamin }}
+                                        @else
+                                            '-'
+                                        @endif
+                                    </label></div>
+                                <div class="col-md-10 mx-10"><label class="labels">Riwayat Penyakit :
+                                        @if ($profile)
+                                            {{ $profile->riwayat_penyakit }}
+                                        @else
+                                            '-'
+                                        @endif
                                     </label>
                                 </div>
                             </div>
