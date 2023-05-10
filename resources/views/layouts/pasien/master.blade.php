@@ -119,7 +119,7 @@
                 </a>
 
                 <!-- Bootstrap core JavaScript-->
-                <script src="{{ asset('js/vendor/jquery/jquery.min.js') }}"></script>
+                <script src="text/javascript" src="{{ ('js/jquery.min1.js') }}" ></script>
                 <script src="{{ asset('js/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
                 <!-- Core plugin JavaScript-->
@@ -132,7 +132,13 @@
                 <script src="{{ asset('js/vendor/chart.js/Chart.min.js') }}"></script>
 
                 <!-- Page level custom scripts -->
-                <script src="{{ asset('js/demo/chart-area-demo-total.php') }}"></script>
+                <script src="{{ asset('js/demo/chart-total-terapi.php') }}"></script>
+                <script src="{{ asset('js/demo/chart-jantung.php') }}"></script>
+                <script src="{{ asset('js/demo/chart-durasi.php') }}"></script>
+                <script src="{{ asset('js/demo/chart-kalori.php') }}"></script>
+                <script src="{{ asset('js/demo/chart-saturasi.php') }}"></script>
+                <script src="{{ asset('js/demo/chart-pedal.php') }}"></script>
+                @yield('jsekstra')
             </div>
         </div>
     </div>

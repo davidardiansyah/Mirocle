@@ -1,8 +1,9 @@
-@extends('layouts.pasien.master')
+@extends('layouts.fisioterapis.master')
 
 @section('title')
     Dashboard
 @endsection
+
 
 @section('content')
     <!-- Content Wrapper -->
@@ -23,8 +24,7 @@
                                 <div class="col-auto">
                                     <div class="font-weight-bold text-primary text-uppercase mb-1 text-xs">
                                         Detak Jantung</div>
-                                    <span id="jantung"></span>
-                                    <span style="h5 font-weight-bold mb-0 text-gray-800">BPM</span>
+                                    <div class="h5 font-weight-bold mb-0 text-gray-800">80/BPM</div>
                                 </div>
                             </div>
                         </div>
@@ -168,16 +168,4 @@
             <i class="fas fa-angle-up"></i>
         </a>
     </div>
-@endsection
-@section('jsekstra')
-
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        setInterval(function() {
-            $("#jantung").load("{{ route('detakjantung') }}");
-        }, 1000); //1000ms = 1s
-    });
-</script>
-
 @endsection

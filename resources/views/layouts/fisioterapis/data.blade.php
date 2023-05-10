@@ -6,7 +6,6 @@
 
 @section('content')
     <div id="content-wrapper" class="d-flex flex-column">
-
         <!-- Main Content -->
         <div id="content">
 
@@ -28,25 +27,11 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Antonius Rio</td>
-                                        <td>50 Tahun</td>
-                                        <td>60 Kg</td>
-                                        <td>Laki-laki</td>
-                                        <td>Stroke bagian kanan</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Arief Mahendra</td>
-                                        <td>45 Tahun</td>
-                                        <td>65 Kg</td>
-                                        <td>laki-laki</td>
-                                        <td>Stroke bagian kanan</td>
-                                    </tr>
-                                    <tr>
-                                        <td>David Ardiansyah</td>
-                                        <td>60 Tahun</td>
-                                        <td>70 Kg</td>
-                                        <td>laki-laki</td>
-                                        <td>Stroke bagian kiri</td>
+                                        <td>{{ Auth::user()->name }}</td>
+                                        <td>{{ $profile->umur ?? '-' }}th</td>
+                                        <td>{{ $profile->berat_badan ?? '-' }}Kg</td>
+                                        <td>{{ $profile->jenis_kelamin ?? '-' }}</td>
+                                        <td>{{ $profile->riwayat_penyakit ?? '-' }}</td>
                                     </tr>
                                 </tbody>
                             </table>
