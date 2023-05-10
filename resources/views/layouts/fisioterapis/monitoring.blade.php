@@ -1,8 +1,9 @@
-@extends('layouts.pasien.master')
+@extends('layouts.fisioterapis.master')
 
 @section('title')
     Dashboard
 @endsection
+
 
 @section('content')
     <!-- Content Wrapper -->
@@ -23,7 +24,7 @@
                                 <div class="col-auto">
                                     <div class="font-weight-bold text-primary text-uppercase mb-1 text-xs">
                                         Detak Jantung</div>
-                                    <span id="jantung">{{ $detakJantung ?? '-' }}</span> BPM</p>
+                                    <div class="h5 font-weight-bold mb-0 text-gray-800">80/BPM</div>
                                 </div>
                             </div>
                         </div>
@@ -122,6 +123,37 @@
                                     <img class="rounded-circle" width="130px"
                                         src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
                                 </div>
+                                <div class="col-md-10 mx-10"><label class="labels">Nama : {{ Auth::user()->name }}
+
+                                    </label></div>
+                                <div class="col-md-10 mx-10"><label class="labels">Umur :
+                                        @if ($profile)
+                                            {{ $profile->umur }}th
+                                        @else
+                                            '-'
+                                        @endif
+                                    </label></div>
+                                <div class="col-md-10 mx-10"><label class="labels">Berat Badan :
+                                        @if ($profile)
+                                            {{ $profile->berat_badan }}Kg
+                                        @else
+                                            '-'
+                                        @endif
+                                    </label></div>
+
+                                <div class="col-md-10 mx-10"><label class="labels">Jenis Kelamin :
+                                        @if ($profile)
+                                            {{ $profile->jenis_kelamin }}
+                                        @else
+                                            '-'
+                                        @endif
+                                    </label></div>
+                                <div class="col-md-10 mx-10"><label class="labels">Riwayat Penyakit :
+                                        @if ($profile)
+                                            {{ $profile->riwayat_penyakit }}
+                                        @else
+                                            '-'
+                                        @endif
                                     </label>
                                 </div>
                             </div>
@@ -136,13 +168,4 @@
             <i class="fas fa-angle-up"></i>
         </a>
     </div>
-@endsection
-@section('jsekstra')
-    <script type="text/javascript">
-        $(document).ready(function() {
-            setInterval(function() {
-                $("#jantung").load("{{ route('detakjantung') }}#jantung");
-            }, 1000); //1000ms = 1s
-        });
-    </script>
 @endsection

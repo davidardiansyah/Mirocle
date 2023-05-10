@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Login</title>
+    <title>Register - Login</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -45,10 +45,21 @@
                                         @csrf
 
                                         <div class="form-group">
+                                            <input name="device_id" type="text"
+                                                class="form-control form-control-user @error('device_id') is-invalid @enderror"
+                                                id="exampleInputName" aria-describedby="emailHelp"
+                                                placeholder="Enter Device id">
+                                            @error('name')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
                                             <input name="name" type="text"
                                                 class="form-control form-control-user @error('name') is-invalid @enderror"
                                                 id="exampleInputName" aria-describedby="emailHelp"
-                                                placeholder="Enter Full Name...">
+                                                placeholder="Enter Full Name">
                                             @error('name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -59,7 +70,7 @@
                                             <input name="email" type="email"
                                                 class="form-control form-control-user @error('email') is-invalid @enderror"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email...">
+                                                placeholder="Enter Email">
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -86,6 +97,7 @@
                                                 </span>
                                             @enderror
                                         </div>
+                                        <div class="text-center">
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Register
                                         </button>

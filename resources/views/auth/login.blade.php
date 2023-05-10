@@ -78,9 +78,6 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="{{ route('register') }}">Register</a>
-                                    </div>
-                                    <div class="text-center">
                                         <a class="small" href="{{ route('password.update') }}">Change Password!</a>
                                     </div>
                                 </div>

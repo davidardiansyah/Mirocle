@@ -55,14 +55,14 @@
             <div class="card mb-4 shadow">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header d-flex align-items-center justify-content-between flex-row py-3">
-                    <h6 class="font-weight-bold m-0 text-gray-900">Total Pasien Melakukan Terapi</h6>
+                    <h6 class="font-weight-bold m-0 text-gray-900">Total Pasien Yang Melakukan Terapi Dalam Setiap Bulan</h6>
                     <div class="dropdown no-arrow">
                     </div>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
                     <div class="chart-area">
-                        <canvas id="chart-container"></canvas>
+                        <canvas id="total-pasien"></canvas>
                     </div>
                 </div>
             </div>

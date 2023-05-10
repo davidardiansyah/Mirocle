@@ -11,9 +11,9 @@
 
     <!-- Custom fonts for this template -->
     <link href="{{ asset('js/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
@@ -125,7 +125,7 @@
                                     <a class="dropdown-item d-flex align-items-center" href="#">
                                         <div class="mr-3">
                                             <div class="icon-circle bg-primary">
-                                                <i class="fas fa-file-alt text-white"></i>
+                                                <i class="fas fa-exclamation-triangle text-white"></i>
                                             </div>
                                         </div>
                                         <div>
@@ -136,7 +136,7 @@
                                     <a class="dropdown-item d-flex align-items-center" href="#">
                                         <div class="mr-3">
                                             <div class="icon-circle bg-success">
-                                                <i class="fas fa-donate text-white"></i>
+                                                <i class="fas fa-exclamation-triangle text-white"></i>
                                             </div>
                                         </div>
                                         <div>
@@ -157,6 +157,59 @@
                                     </a>
                                     <a class="dropdown-item small text-center text-gray-500" href="#">Show All
                                         Alerts</a>
+                                </div>
+
+                                <!-- Nav Item - Messages -->
+                            <li class="nav-item dropdown no-arrow mx-1">
+                                <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown"
+                                    role="button" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    <i class="fas fa-envelope fa-fw"></i>
+                                    <!-- Counter - Messages -->
+                                    <span class="badge badge-danger badge-counter">7</span>
+                                </a>
+                                <!-- Dropdown - Messages -->
+                                <div class="dropdown-list dropdown-menu dropdown-menu-right animated--grow-in shadow"
+                                    aria-labelledby="messagesDropdown">
+                                    <h6 class="dropdown-header">
+                                        Message Center
+                                    </h6>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="font-weight-bold">
+                                            <div class="text-truncate">Hi there! I am wondering if you can help me with
+                                                a
+                                                problem I've been having.</div>
+                                            <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div>
+                                            <i class="fa-regular fa-envelope"></i>
+                                            <div class="text-truncate">I have the photos that you ordered last month,
+                                                how
+                                                would you like them sent to you?</div>
+                                            <div class="small text-gray-500">Jae Chun · 1d</div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div>
+                                            <div class="text-truncate">Last month's report looks great, I am very happy
+                                                with
+                                                the progress so far, keep up the good work!</div>
+                                            <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div>
+                                            <div class="text-truncate">Am I a good boy? The reason I ask is because
+                                                someone
+                                                told me that people say this to all dogs, even if they aren't good...
+                                            </div>
+                                            <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item small text-center text-gray-500" href="#">Read More
+                                        Messages</a>
                                 </div>
                             </li>
 
@@ -207,7 +260,7 @@
                 <script src="{{ asset('js/vendor/chart.js/Chart.min.js') }}"></script>
 
                 <!-- Page level custom scripts -->
-                <script src="{{ asset('js/highcharts-chart.js') }}"></script>
+                <script src="{{ asset('js/demo/chart-total-pasien.php') }}"></script>
                 <script src="{{ asset('js/demo/chart-pie-demo.js') }}"></script>
             </div>
         </div>
