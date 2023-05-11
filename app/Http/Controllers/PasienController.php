@@ -40,7 +40,7 @@ class PasienController extends Controller
     {
         // Ambil data detak jantung terbaru dari session
         $detakJantung = session('detakjantung');
-
         return view('/layouts/pasien/dashboard', compact('detakJantung'));
     }
-}
+    }
+

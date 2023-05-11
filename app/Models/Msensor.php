@@ -12,5 +12,5 @@ class Msensor extends Model
 
     protected $table = 'sensor_realtime';
     protected $primaryKey = 'id';
-    protected $fillable = ['jantung', 'durasi', 'oksigen', 'putaran', 'kalori'];
+    protected $fillable = ['jantung','durasi','oksigen','putaran','kalori'];
 }

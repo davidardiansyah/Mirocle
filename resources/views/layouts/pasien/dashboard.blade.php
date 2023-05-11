@@ -21,9 +21,13 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-auto">
-                                    <div class="font-weight-bold text-primary text-uppercase mb-1 text-xs">
-                                        Detak Jantung</div>
-                                    <span id="jantung">{{ $detakJantung ?? '-' }}</span> BPM</p>
+                                    <div class="font-weight-bold text-primary text-uppercase mb-1 text-xs"> Detak Jantung
+                                    </div>
+                                    <div class="h5 font-weight-bold mb-0 text-gray-800"> <span
+                                            id="jantung">{{ $jantung ?? '-' }}</span> BPM</p>
+                                    </div>
+
+
                                 </div>
                             </div>
                         </div>
@@ -37,7 +41,9 @@
                                 <div class="col-auto">
                                     <div class="font-weight-bold text-warning text-uppercase mb-1 text-xs">
                                         Durasi</div>
-                                    <div class="h5 font-weight-bold mb-0 text-gray-800">10 Menit</div>
+                                    <div class="h5 font-weight-bold mb-0 text-gray-800"> <span
+                                            id="durasi">{{ $durasi ?? '-' }}</span>menit</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +57,8 @@
                                 <div class="col-auto">
                                     <div class="font-weight-bold text-info text-uppercase mb-1 text-xs">
                                         Saturasi Oksigen</div>
-                                    <div class="h5 font-weight-bold mb-0 text-gray-800">80%</div>
+                                    <div class="h5 font-weight-bold mb-0 text-gray-800"><span
+                                        id="oksigen">{{ $oksigen ?? '-' }}</span>%</p></div>
                                 </div>
                             </div>
                         </div>
@@ -65,7 +72,8 @@
                                 <div class="col-auto">
                                     <div class="font-weight-bold text-success text-uppercase mb-1 text-xs">
                                         Jumlah Putaran Pedal</div>
-                                    <div class="h5 font-weight-bold mb-0 text-gray-800">10</div>
+                                    <div class="h5 font-weight-bold mb-0 text-gray-800"><span
+                                        id="putaran">{{ $putaran ?? '-' }}</span>kali</p></div>
                                 </div>
                             </div>
                         </div>
@@ -79,7 +87,8 @@
                                 <div class="col-auto">
                                     <div class="font-weight-bold text-danger text-uppercase mb-1 text-xs">
                                         Jumlah Kalori Terbakar</div>
-                                    <div class="h5 font-weight-bold mb-0 text-gray-800">2500</div>
+                                    <div class="h5 font-weight-bold mb-0 text-gray-800"><span
+                                        id="kalori">{{ $kalori ?? '-' }}</span></div>
                                 </div>
                             </div>
                         </div>
@@ -176,20 +185,23 @@
 @section('jsekstra')
     <script type="text/javascript">
         $(document).ready(function() {
-            
+
             setInterval(function() {
                 $.ajax({
                     url: '/detakjantung', // URL to request data from
+
                     type: 'GET', // HTTP method
                     success: function(data) {
                         // console.log(data);
                         $("#jantung").text(data.jantung);
+                        $("#durasi").text(data.durasi);
+                        $("#oksigen").text(data.oksigen);
+                        $("#putaran").text(data.putaran);
+                        $("#kalori").text(data.kalori);
                     },
-                    // error: function(xhr, textStatus, errorThrown) {
-                    //     console.log('Error: ' + textStatus);
-                    // }
                 });
             }, 1000); //1000ms = 1s
         });
     </script>
+    
 @endsection
