@@ -13,7 +13,9 @@ class FisioTerapisController extends Controller
     }
     public function data()
     {
-        return view('/layouts/fisioterapis/data');
+        $users = User::with('profile')->get();
+        // dd($users);
+        return view('/layouts/fisioterapis/data', compact('users'));
     }
     public function input()
     {

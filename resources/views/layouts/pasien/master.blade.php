@@ -7,12 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="author" content="">
 
     <Title>MIROCLE</Title>
 
     <!-- Custom fonts for this template-->
-    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/font-awesome-free.min.css') }}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -118,33 +119,37 @@
                     <i class="fas fa-angle-up"></i>
                 </a>
 
-                <!-- Bootstrap core JavaScript-->
-                <script src="text/javascript" src="{{ 'js/jquery.min1.js' }}"></script>
-                <script src="{{ asset('js/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-                <!-- Core plugin JavaScript-->
-                <script src="{{ asset('js/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-
-                <!-- Custom scripts for all pages-->
-                <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
-
-                <!-- Page level plugins -->
-                <script src="{{ asset('js/vendor/chart.js/Chart.min.js') }}"></script>
-
-                <!-- Page level custom scripts -->
-                <script src="{{ asset('js/demo/chart-total-terapi.php') }}"></script>
-                <script src="{{ asset('js/demo/chart-jantung.php') }}"></script>
-                <script src="{{ asset('js/demo/chart-durasi.php') }}"></script>
-                <script src="{{ asset('js/demo/chart-kalori.php') }}"></script>
-                <script src="{{ asset('js/demo/chart-saturasi.php') }}"></script>
-                <script src="{{ asset('js/demo/chart-pedal.php') }}"></script>
-
-                @yield('jsekstra')
-                
-                <script src="text/javascript" src="{{ 'js/jquery.min1.js' }}"></script>
             </div>
         </div>
     </div>
+    <!-- Bootstrap core JavaScript-->
+    {{-- <script src="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script> --}}
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" 
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" 
+        crossorigin="anonymous"></script>
+
+    <script src="{{ asset('js/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="{{ asset('js/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+
+    <!-- Page level plugins -->
+    <script src="{{ asset('js/vendor/chart.js/Chart.min.js') }}"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{{ asset('js/demo/chart-total-terapi.js') }}"></script>
+    {{-- <script src="{{ asset('js/demo/chart-jantung.js') }}"></script> --}}
+    {{-- <script src="{{ asset('js/demo/chart-durasi.js') }}"></script> --}}
+    {{-- <script src="{{ asset('js/demo/chart-kalori.js') }}"></script> --}}
+    {{-- <script src="{{ asset('js/demo/chart-saturasi.js') }}"></script> --}}
+    {{-- <script src="{{ asset('js/demo/chart-pedal.js') }}"></script> --}}
+
+    @yield('jsekstra')
+
+    {{-- <script src="text/javascript" src="{{ 'js/jquery.min1.js' }}"></script> --}}
 </body>
 
 </html>

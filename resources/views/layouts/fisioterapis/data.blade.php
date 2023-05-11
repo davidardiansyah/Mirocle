@@ -26,13 +26,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>{{ Auth::user()->name }}</td>
-                                        <td>{{ $profile->umur ?? '-' }}th</td>
-                                        <td>{{ $profile->berat_badan ?? '-' }}Kg</td>
-                                        <td>{{ $profile->jenis_kelamin ?? '-' }}</td>
-                                        <td>{{ $profile->riwayat_penyakit ?? '-' }}</td>
-                                    </tr>
+                                    @foreach ($users as $user)
+                                        <tr>
+                                            <td>{{ $user->name }}</td>
+                                            <td>{{ $user->profile->umur ?? '-' }}th</td>
+                                            <td>{{ $user->profile->berat_badan ?? '-' }}Kg</td>
+                                            <td>{{ $user->profile->jenis_kelamin ?? '-' }}</td>
+                                            <td>{{ $user->profile->riwayat_penyakit ?? '-' }}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

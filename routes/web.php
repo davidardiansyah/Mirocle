@@ -43,10 +43,7 @@ Route::get('/', function () {
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/', function () {
-    return view('layouts.pasien.dashboard');
-});
-Route::get('/', [PasienController::class, 'dashboard'])->name('pasien.dashboard');
+// Route::get('/', [PasienController::class, 'dashboard'])->name('pasien.dashboard');
 Route::get('/detakjantung', [SensorLaravel::class, 'detakjantung'])->name('detakjantung');
 
 

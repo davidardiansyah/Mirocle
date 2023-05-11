@@ -11,7 +11,7 @@ class PasienController extends Controller
     public function index()
     {
         $profile = Profile::query()->where('user_id', '=', Auth::user()->id)->first();
-        return view('/layouts/pasien/dashboard', compact('profile'));
+        return view('layouts.pasien.dashboard', ['profile' => $profile]);
     }
 
     public function biodata()

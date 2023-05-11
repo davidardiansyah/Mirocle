@@ -65,11 +65,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'device_id' => $data['device_id'],
             'password' => Hash::make($data['password']),
         ]);
+        return redirect()->route('fisioterapis.index');
     }
 }

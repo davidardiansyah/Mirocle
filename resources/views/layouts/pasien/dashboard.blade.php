@@ -129,19 +129,19 @@
                                             '-'
                                         @endif
                                     </label></div>
-                                    <div class="col-md-10 mx-10"><label class="labels">Umur :
-                                            @if ($profile)
-                                                {{ $profile->umur }}
-                                            @else
-                                                '-'
-                                            @endif
-                                        </label></div>
-                                    <div class="col-md-10 mx-10"><label class="labels">Berat Badan :
-                                            @if ($profile)
-                                                {{ $profile->berat_badan }}
-                                            @else
-                                                '-'
-                                            @endif
+                                <div class="col-md-10 mx-10"><label class="labels">Umur :
+                                        @if ($profile)
+                                            {{ $profile->umur }}
+                                        @else
+                                            '-'
+                                        @endif
+                                    </label></div>
+                                <div class="col-md-10 mx-10"><label class="labels">Berat Badan :
+                                        @if ($profile)
+                                            {{ $profile->berat_badan }}
+                                        @else
+                                            '-'
+                                        @endif
                                     </label>
                                     </label></div>
                                 <div class="col-md-10 mx-10"><label class="labels">Jenis Kelamin :
@@ -157,26 +157,38 @@
                                         @else
                                             '-'
                                         @endif
-                                </label>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
     </div>
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
 @endsection
+
 @section('jsekstra')
     <script type="text/javascript">
         $(document).ready(function() {
+            
             setInterval(function() {
-                $("#jantung").load("{{ route('detakjantung') }}#jantung");
+                $.ajax({
+                    url: '/detakjantung', // URL to request data from
+                    type: 'GET', // HTTP method
+                    success: function(data) {
+                        // console.log(data);
+                        $("#jantung").text(data.jantung);
+                    },
+                    // error: function(xhr, textStatus, errorThrown) {
+                    //     console.log('Error: ' + textStatus);
+                    // }
+                });
             }, 1000); //1000ms = 1s
         });
     </script>
