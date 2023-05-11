@@ -24,7 +24,7 @@
                                     <div class="font-weight-bold text-primary text-uppercase mb-1 text-xs"> Detak Jantung
                                     </div>
                                     <div class="h5 font-weight-bold mb-0 text-gray-800"> <span
-                                            id="jantung">{{ $jantung ?? '-' }}</span> BPM</p>
+                                            id="detak_jantung">{{ $detak_jantung ?? '-' }}</span> BPM</p>
                                     </div>
 
 
@@ -193,7 +193,7 @@
                     type: 'GET', // HTTP method
                     success: function(data) {
                         // console.log(data);
-                        $("#jantung").text(data.jantung);
+                        $("#detak_jantung").text(data.detak_jantung);
                         $("#durasi").text(data.durasi);
                         $("#oksigen").text(data.oksigen);
                         $("#putaran").text(data.putaran);

@@ -10,7 +10,7 @@ class Msensor extends Model
 {
     use HasFactory;
 
-    protected $table = 'sensor_realtime';
+    protected $table = 'sensor_data';
     protected $primaryKey = 'id';
-    protected $fillable = ['jantung','durasi','oksigen','putaran','kalori'];
+    protected $fillable = ['detak_jantung','durasi','oksigen','putaran','kalori'];
 }
