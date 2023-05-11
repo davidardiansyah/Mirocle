@@ -78,6 +78,7 @@
                                 <span aria-hidden="true">×</span>
                             </button>
                         </div>
+
                         <div class="modal-body">Pilih "Logout" jika Anda ingin mengakhiri sesi ini.</div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
@@ -118,7 +119,7 @@
                 </a>
 
                 <!-- Bootstrap core JavaScript-->
-                <script src="text/javascript" src="{{ ('js/jquery.min1.js') }}" ></script>
+                <script src="text/javascript" src="{{ 'js/jquery.min1.js' }}"></script>
                 <script src="{{ asset('js/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
                 <!-- Core plugin JavaScript-->
@@ -137,8 +138,10 @@
                 <script src="{{ asset('js/demo/chart-kalori.php') }}"></script>
                 <script src="{{ asset('js/demo/chart-saturasi.php') }}"></script>
                 <script src="{{ asset('js/demo/chart-pedal.php') }}"></script>
+
                 @yield('jsekstra')
-                <script src="text/javascript" src="{{ ('js/jquery.min1.js') }}" ></script>
+                
+                <script src="text/javascript" src="{{ 'js/jquery.min1.js' }}"></script>
             </div>
         </div>
     </div>

@@ -122,51 +122,55 @@
                                     <img class="rounded-circle" width="130px"
                                         src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
                                 </div>
-                                <div class="col-md-10 mx-10"><label class="labels">Nama : {{ Auth::user()->name }}
-
-                                    </label></div>
-                                <div class="col-md-10 mx-10"><label class="labels">Umur :
-                                        @if ($profile)
-                                            {{ $Profile->umur }}th
+                                <div class="col-md-10 mx-10"><label class="labels">Nama :
+                                        @if (Auth::check())
+                                            {{ Auth::user()->name }}
                                         @else
                                             '-'
                                         @endif
                                     </label></div>
-                                <div class="col-md-10 mx-10"><label class="labels">Berat Badan :
-                                        @if ($profile)
-                                            {{ $Profile->berat_badan }}Kg
-                                        @else
-                                            '-'
-                                        @endif
+                                    <div class="col-md-10 mx-10"><label class="labels">Umur :
+                                            @if ($profile)
+                                                {{ $profile->umur }}
+                                            @else
+                                                '-'
+                                            @endif
+                                        </label></div>
+                                    <div class="col-md-10 mx-10"><label class="labels">Berat Badan :
+                                            @if ($profile)
+                                                {{ $profile->berat_badan }}
+                                            @else
+                                                '-'
+                                            @endif
+                                    </label>
                                     </label></div>
-
                                 <div class="col-md-10 mx-10"><label class="labels">Jenis Kelamin :
                                         @if ($profile)
-                                            {{ $Profile->jenis_kelamin }}
+                                            {{ $profile->jenis_kelamin }}
                                         @else
                                             '-'
                                         @endif
                                     </label></div>
                                 <div class="col-md-10 mx-10"><label class="labels">Riwayat Penyakit :
                                         @if ($profile)
-                                            {{ $Profile->riwayat_penyakit }}
+                                            {{ $profile->riwayat_penyakit }}
                                         @else
                                             '-'
                                         @endif
-                                    </label>
-                                </div>
+                                </label>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-        </a>
     </div>
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
 @endsection
 @section('jsekstra')
     <script type="text/javascript">
