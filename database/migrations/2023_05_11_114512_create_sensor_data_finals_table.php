@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sensor_data_finals', function (Blueprint $table) {
+        Schema::create('sensor_data_final', function (Blueprint $table) {
             $table->id();
             $table->integer('id_terapi');
             $table->text('waktu_mulai')->nullable();
