@@ -61,13 +61,9 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-<<<<<<< HEAD
                     <div class="chart-area">
                         <canvas id="total-pasien"></canvas>
                     </div>
-=======
-                    <canvas id="myChartTotal" width="100%" height="30"></canvas>
->>>>>>> 0f60be89533984c198a20edd45aea371ab551926
                 </div>
 
             </div>

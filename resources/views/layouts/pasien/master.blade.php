@@ -40,7 +40,6 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('pasien.index') }}">
@@ -117,7 +116,7 @@
                 <a class="scroll-to-top rounded" href="#page-top">
                     <i class="fas fa-angle-up"></i>
                 </a>
-       
+
                 <!-- Bootstrap core JavaScript-->
                 <script src="text/javascript" src="{{ ('js/jquery.min1.js') }}" ></script>
                 <script src="{{ asset('js/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

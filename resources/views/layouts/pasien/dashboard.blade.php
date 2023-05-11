@@ -127,14 +127,14 @@
                                     </label></div>
                                 <div class="col-md-10 mx-10"><label class="labels">Umur :
                                         @if ($profile)
-                                            {{ $profile->umur }}th
+                                            {{ $Profile->umur }}th
                                         @else
                                             '-'
                                         @endif
                                     </label></div>
                                 <div class="col-md-10 mx-10"><label class="labels">Berat Badan :
                                         @if ($profile)
-                                            {{ $profile->berat_badan }}Kg
+                                            {{ $Profile->berat_badan }}Kg
                                         @else
                                             '-'
                                         @endif
@@ -142,14 +142,14 @@
 
                                 <div class="col-md-10 mx-10"><label class="labels">Jenis Kelamin :
                                         @if ($profile)
-                                            {{ $profile->jenis_kelamin }}
+                                            {{ $Profile->jenis_kelamin }}
                                         @else
                                             '-'
                                         @endif
                                     </label></div>
                                 <div class="col-md-10 mx-10"><label class="labels">Riwayat Penyakit :
                                         @if ($profile)
-                                            {{ $profile->riwayat_penyakit }}
+                                            {{ $Profile->riwayat_penyakit }}
                                         @else
                                             '-'
                                         @endif
