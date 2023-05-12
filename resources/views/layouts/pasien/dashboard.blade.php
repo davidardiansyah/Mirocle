@@ -26,8 +26,6 @@
                                     <div class="h5 font-weight-bold mb-0 text-gray-800"> <span
                                             id="detak_jantung">{{ $detak_jantung ?? '-' }}</span> BPM</p>
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
@@ -42,7 +40,7 @@
                                     <div class="font-weight-bold text-warning text-uppercase mb-1 text-xs">
                                         Durasi</div>
                                     <div class="h5 font-weight-bold mb-0 text-gray-800"> <span
-                                            id="durasi">{{ $durasi ?? '-' }}</span>menit</p>
+                                            id="jumlah_detak_jantung">{{ $jumlah_detak_jantung ?? '-' }}</span>menit</p>
                                     </div>
                                 </div>
                             </div>
@@ -58,7 +56,8 @@
                                     <div class="font-weight-bold text-info text-uppercase mb-1 text-xs">
                                         Saturasi Oksigen</div>
                                     <div class="h5 font-weight-bold mb-0 text-gray-800"><span
-                                        id="oksigen">{{ $oksigen ?? '-' }}</span>%</p></div>
+                                            id="saturasi_oksigen">{{ $saturasi_oksigen ?? '-' }}</span>%</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +72,8 @@
                                     <div class="font-weight-bold text-success text-uppercase mb-1 text-xs">
                                         Jumlah Putaran Pedal</div>
                                     <div class="h5 font-weight-bold mb-0 text-gray-800"><span
-                                        id="putaran">{{ $putaran ?? '-' }}</span>kali</p></div>
+                                            id="putaran_pedal">{{ $putaran_pedal ?? '-' }}</span>kali</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                                     <div class="font-weight-bold text-danger text-uppercase mb-1 text-xs">
                                         Jumlah Kalori Terbakar</div>
                                     <div class="h5 font-weight-bold mb-0 text-gray-800"><span
-                                        id="kalori">{{ $kalori ?? '-' }}</span></div>
+                                            id="kalori">{{ $kalori ?? '-' }}</span></div>
                                 </div>
                             </div>
                         </div>
@@ -192,16 +192,15 @@
 
                     type: 'GET', // HTTP method
                     success: function(data) {
-                        // console.log(data);
+                        console.log(data);
                         $("#detak_jantung").text(data.detak_jantung);
-                        $("#durasi").text(data.durasi);
-                        $("#oksigen").text(data.oksigen);
-                        $("#putaran").text(data.putaran);
+                        $("#jumlah_detak_jantung").text(data.jumlah_detak_jantung);
+                        $("#saturasi_oksigen").text(data.saturasi_oksigen);
+                        $("#putaran_pedal").text(data.putaran_pedal);
                         $("#kalori").text(data.kalori);
                     },
                 });
             }, 1000); //1000ms = 1s
         });
     </script>
-    
 @endsection

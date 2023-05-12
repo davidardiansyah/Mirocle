@@ -12,8 +12,7 @@ class SensorLaravel extends Controller
     {
         //baca nilai/isi tabel sensor_realtime dan ambil nilai jantung
 
-        $sensor = Msensor::latest()->first();
-
+        $sensor = Msensor::latest('id')->first();
         return response()->json($sensor);
     }
 }

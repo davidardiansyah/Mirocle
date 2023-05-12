@@ -12,5 +12,5 @@ class Msensor extends Model
 
     protected $table = 'sensor_data';
     protected $primaryKey = 'id';
-    protected $fillable = ['detak_jantung','durasi','oksigen','putaran','kalori'];
+    protected $fillable = ['detak_jantung', 'jumlah_detak_jantung', 'saturasi_oksigen','putaran_pedal', 'kalori'];
 }
