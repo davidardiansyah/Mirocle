@@ -22,8 +22,9 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('pasien')->group(function () {
         Route::get('/', [PasienController::class, 'index'])->name('pasien.index');
         Route::get('/data', [PasienController::class, 'biodata'])->name('pasien.biodata');
-        Route::get('/input', [PasienController::class, 'grafik'])->name('pasien.grafik');
+        Route::get('/grafik', [PasienController::class, 'grafik'])->name('pasien.grafik');
         Route::post('/update-profile', [PasienController::class, 'update_profile'])->name('pasien.update_profile');
+        Route::get('/exportexcel', [PasienController::class, 'exportexcel'])->name('exportexcel');
     });
 });
 

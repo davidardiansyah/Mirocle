@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Profile;
+use App\Http\Controllers\Controller;
+use App\Exports\DataFinal;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PasienController extends Controller
 {
@@ -42,5 +45,10 @@ class PasienController extends Controller
         $detakJantung = session('detakjantung');
         return view('/layouts/pasien/dashboard', compact('detakJantung'));
     }
+
+    public function exportexcel(){
+        return Excel::download (new DataFinal, 'data_final.xlsx');
+    }
+
     }
 

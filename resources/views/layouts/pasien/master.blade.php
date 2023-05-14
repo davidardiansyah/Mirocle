@@ -20,6 +20,8 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+    @livewireStyles
+    @stack('css')
 </head>
 
 <body id="page-top">
@@ -106,7 +108,7 @@
                         <div class="d-sm-flex align-items-center justify-content-between my-4">
                             <h1 class="h3 mt-3 text-gray-800">@yield('title')</h1>
                         </div>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-info mt-3 shadow-sm"><i
+                        <a href="{{route ('exportexcel')}}" class="d-none d-sm-inline-block btn btn-sm btn-info mt-3 shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
                 </nav>
@@ -150,6 +152,9 @@
     @yield('jsekstra')
 
     {{-- <script src="text/javascript" src="{{ 'js/jquery.min1.js' }}"></script> --}}
+
+    @livewireStyles
+    @stack('js')
 </body>
 
 </html>

@@ -19,8 +19,9 @@ class Profile extends Model
         'riwayat_penyakit',
     ];
     public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
+    {   
+        return $this->belongsTo(User::class)->where('role', 2);
+        // return $this->belongsTo(User::class);
     }
 
 }

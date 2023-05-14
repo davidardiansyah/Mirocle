@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class SensorDataFinal extends Model
 {
     use HasFactory;
+    protected $table = 'sensor_data_final';
 }

@@ -99,7 +99,7 @@
 
             <div class="row">
 
-                <!-- Area Chart -->
+                {{-- DAERAH GRAFIK TOTAL TERAPI --}}
                 <div class="col-xl-8 col-lg-7">
                     <div class="card mb-4 shadow">
                         <!-- Card Header - Dropdown -->
@@ -116,8 +116,9 @@
                         </div>
                     </div>
                 </div>
+                
 
-                <!-- Pie Chart -->
+                {{-- BIODATA PASIEN ADA DISINI  --}}
                 <div class="col-xl-4 col-lg-5">
                     <div class="card mb-4 shadow">
                         <!-- Card Header - Dropdown -->
