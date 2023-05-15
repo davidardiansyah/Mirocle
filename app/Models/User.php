@@ -54,4 +54,11 @@ class User extends Authenticatable
             $query->where('role', self::ROLE_PASIEN);
         });
     }
+
+    public function sensorDataFinal(): HasOne
+    {
+        return $this->hasOne(sensorDataFinal::class)->whereHas('user', function ($query) {
+            $query->where('role', self::ROLE_PASIEN);
+        });
+    }
 }

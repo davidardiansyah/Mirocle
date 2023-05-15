@@ -35,14 +35,17 @@ class FisioTerapisController extends Controller
     public function riwayat()
     {  
         $query = SensorDatafinal::query();
-    
+        $pasien = User::all()->where('role', '!=', 1);
+      
         $sensorDataFinal = $query->paginate(10);
+
+        $sensorDataFinal->load('user'); // Melakukan eager loading relasi 'user'
     
         $sensorDataFinal->transform(function ($data) {
             $data->timestamp = Carbon::createFromTimestamp($data->id_terapi);
             return $data;
         });
     
-        return view('layouts.fisioterapis.riwayat', compact('sensorDataFinal'));
+        return view('layouts.fisioterapis.riwayat', compact('sensorDataFinal', 'pasien'));
     }
 }

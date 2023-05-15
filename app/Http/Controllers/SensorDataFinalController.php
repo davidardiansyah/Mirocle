@@ -83,4 +83,5 @@ class SensorDataFinalController extends Controller
     {
         //
     }
+    
 }

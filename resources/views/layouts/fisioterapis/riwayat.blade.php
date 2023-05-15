@@ -24,7 +24,7 @@
                         <tbody>
                             @foreach ($sensorDataFinal as $data)
                                 <tr>
-                                    <td class="text-center">{{ $data->detak_jantung != 0 ? $data->detak_jantung : '-' }}</td>
+                                    <td class="text-center">{{ $data->user->name }}</td>
                                     <td class="text-center">{{ $data->timestamp->format('Y-m-d H:i:s') }}</td>
                                     <td class="text-center">{{ $data->rata_rata_detak_jantung != 0 ? $data->rata_rata_detak_jantung : '-' }}</td>
                                     <td class="text-center">{{ $data->kalori_total != 0 ? $data->kalori_total : '-' }}</td>
