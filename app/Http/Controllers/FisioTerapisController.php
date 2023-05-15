@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use App\Models\SensorDataFinal;
 
 class FisioTerapisController extends Controller
 {
@@ -31,7 +33,16 @@ class FisioTerapisController extends Controller
     }
 
     public function riwayat()
-    {
-        return view('/layouts/fisioterapis/riwayat');
+    {  
+        $query = SensorDatafinal::query();
+    
+        $sensorDataFinal = $query->paginate(10);
+    
+        $sensorDataFinal->transform(function ($data) {
+            $data->timestamp = Carbon::createFromTimestamp($data->id_terapi);
+            return $data;
+        });
+    
+        return view('layouts.fisioterapis.riwayat', compact('sensorDataFinal'));
     }
 }

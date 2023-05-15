@@ -58,6 +58,13 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
+                <a class="nav-link" href=" {{ route('pasien.riwayat') }}">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Riwayat</span></a>
+            </li>
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
                 <a class="nav-link" href="{{ route('pasien.biodata') }}">
                     <i class="fas fa-fw fa-user-alt"></i>
                     <span>Profile</span></a>

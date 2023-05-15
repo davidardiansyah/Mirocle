@@ -8,6 +8,10 @@ use App\Models\Profile;
 use App\Http\Controllers\Controller;
 use App\Exports\DataFinal;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Models\SensorData;
+use Carbon\Carbon;
+
+
 
 class PasienController extends Controller
 {
@@ -19,12 +23,18 @@ class PasienController extends Controller
 
     public function biodata()
     {
-        return view('/layouts/pasien/biodata');
+        return view('layouts.pasien.biodata');
     }
 
     public function grafik()
     {
-        return view('/layouts/pasien/grafik');
+        return view('layouts.pasien.grafik');
+    }
+
+    public function riwayat()
+    {
+        $sensorData = SensorData::all();
+        return view('layouts.pasien.riwayat', compact('sensorData'));
     }
 
     public function update_profile(Request $request)
@@ -49,6 +59,23 @@ class PasienController extends Controller
     public function exportexcel(){
         return Excel::download (new DataFinal, 'data_final.xlsx');
     }
+
+    public function selectdata(Request $request)
+    {
+        $tanggal = $request->input('tanggal');
+    
+        $query = SensorData::query();
+    
+        if ($tanggal) {
+            $tanggal = Carbon::parse($tanggal);
+            $query->whereDate('timestamp', $tanggal);
+        }
+    
+        $sensorData = $query->paginate(10);
+    
+        return view('layouts.pasien.riwayat', compact('sensorData', 'tanggal'));
+    }
+    
 
     }
 

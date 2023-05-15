@@ -1,3 +1,4 @@
+
 @extends('layouts.fisioterapis.master')
 
 @section('title')
@@ -5,91 +6,37 @@
 @endsection
 
 @section('content')
-<body id="page-top">
-
-<!-- Begin Page Content -->
-<div class="container-fluid">
-
-<!-- DataTales Example -->
-<div class="card shadow mb-4">
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>Nama</th>
-                        <th>Tanggal Terapi</th>
-                        <th>Waktu</th>
-                        <th>Durasi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Antonius Rio</td>
-                        <td>03-Februari-2023</td>
-                        <td>20.00 - 21.05 WIB</td>
-                        <td>5 menit</td>   
-                    </tr>
-                    <tr>
-                        <td>Arief Mahendra</td>
-                        <td>10-Januari-2023</td>
-                        <td>20.00 - 21.05 WIB</td>
-                        <td>5 menit</td>   
-                    </tr>
-                    <tr>
-                        <td>David Ardiansyah</td>
-                        <td>05-Januari-2023</td>
-                        <td>20.00 - 21.05 WIB</td>
-                        <td>5 menit</td>   
-                    </tr>
-                    <tr>
-                        <td>Antonius Rio</td>
-                        <td>03-Februari-2023</td>
-                        <td>20.00 - 21.05 WIB</td>
-                        <td>5 menit</td>   
-                    </tr>
-                    <tr>
-                        <td>Arief Mahendra</td>
-                        <td>10-Januari-2023</td>
-                        <td>20.00 - 21.05 WIB</td>
-                        <td>5 menit</td>   
-                    </tr>
-                    <tr>
-                        <td>David Ardiansyah</td>
-                        <td>05-Januari-2023</td>
-                        <td>20.00 - 21.05 WIB</td>
-                        <td>5 menit</td>   
-                    </tr>
-                                        <tr>
-                        <td>Antonius Rio</td>
-                        <td>03-Februari-2023</td>
-                        <td>20.00 - 21.05 WIB</td>
-                        <td>5 menit</td>   
-                    </tr>
-                    <tr>
-                        <td>Arief Mahendra</td>
-                        <td>10-Januari-2023</td>
-                        <td>20.00 - 21.05 WIB</td>
-                        <td>5 menit</td>   
-                    </tr>
-                </tbody>
-            </table>
-
-<nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-end">
-    <li class="page-item disabled">
-    <a class="page-link" href="#" tabindex="-1">Previous</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-    <a class="page-link" href="#">Next</a>
-    </li>
-</ul>
-</nav>
-
-</body>
-
-</html>
+     <div class="container-fluid">
+        <div class="card mb-4 shadow">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table-bordered table" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Nama </th>
+                                <th class="text-center">Tanggal</th>
+                                <th class="text-center">Rata Rata Detak jantung</th>
+                                <th class="text-center">Jumlah Kalori</th>
+                                <th class="text-center">Jumlah Putaran Pedal</th>
+                                <th class="text-center">Durasi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($sensorDataFinal as $data)
+                                <tr>
+                                    <td class="text-center">{{ $data->detak_jantung != 0 ? $data->detak_jantung : '-' }}</td>
+                                    <td class="text-center">{{ $data->timestamp->format('Y-m-d H:i:s') }}</td>
+                                    <td class="text-center">{{ $data->rata_rata_detak_jantung != 0 ? $data->rata_rata_detak_jantung : '-' }}</td>
+                                    <td class="text-center">{{ $data->kalori_total != 0 ? $data->kalori_total : '-' }}</td>
+                                    <td class="text-center">{{ $data->putaran_pedal != 0 ? $data->putaran_pedal : '-' }}</td>
+                                    <td class="text-center">{{ $data->durasi != 0 ? $data->durasi : '-' }}</td>
+                                   </tr>
+                             @endforeach
+                        </tbody>
+                    </table>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
