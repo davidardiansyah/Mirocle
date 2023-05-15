@@ -20,6 +20,8 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+    @livewireStyles
+    @stack('css')
 </head>
 
 <body id="page-top">
@@ -52,6 +54,13 @@
                 <a class="nav-link" href=" {{ route('pasien.grafik') }}">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Grafik</span></a>
+            </li>
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href=" {{ route('pasien.riwayat') }}">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Riwayat</span></a>
             </li>
 
             <!-- Nav Item - Dashboard -->
@@ -106,7 +115,7 @@
                         <div class="d-sm-flex align-items-center justify-content-between my-4">
                             <h1 class="h3 mt-3 text-gray-800">@yield('title')</h1>
                         </div>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-info mt-3 shadow-sm"><i
+                        <a href="{{route ('exportexcel')}}" class="d-none d-sm-inline-block btn btn-sm btn-info mt-3 shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
                 </nav>
@@ -150,6 +159,9 @@
     @yield('jsekstra')
 
     {{-- <script src="text/javascript" src="{{ 'js/jquery.min1.js' }}"></script> --}}
+
+    @livewireStyles
+    @stack('js')
 </body>
 
 </html>

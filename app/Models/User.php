@@ -16,6 +16,7 @@ class User extends Authenticatable
 
     const ROLE_FISIOTERAPIS = 1;
     const ROLE_PASIEN = 2;
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -47,8 +48,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function profile (): HasOne
+    public function profile(): HasOne
     {
-        return $this->hasOne(Profile::class);
+        return $this->hasOne(Profile::class)->whereHas('user', function ($query) {
+            $query->where('role', self::ROLE_PASIEN);
+        });
+    }
+
+    public function sensorDataFinal(): HasOne
+    {
+        return $this->hasOne(sensorDataFinal::class)->whereHas('user', function ($query) {
+            $query->where('role', self::ROLE_PASIEN);
+        });
     }
 }

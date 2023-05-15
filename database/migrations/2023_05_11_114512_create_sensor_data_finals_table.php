@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('sensor_data_final', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('id_terapi');
             $table->text('waktu_mulai')->nullable();
             $table->text('waktu_selesai')->nullable();

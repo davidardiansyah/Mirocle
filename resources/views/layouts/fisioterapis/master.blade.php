@@ -221,16 +221,16 @@
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span
                                         class="d-none d-lg-inline small mr-2 text-gray-600">{{ auth()->user()->name }}</span>
-                                    <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                    {{-- <img class="img-profile rounded-circle" src="img/undraw_profile.svg"> --}}
                                 </a>
                                 <!-- Dropdown - User Information -->
-                                <div class="dropdown-menu dropdown-menu-right animated--grow-in shadow"
+                                {{-- <div class="dropdown-menu dropdown-menu-right animated--grow-in shadow"
                                     aria-labelledby="userDropdown">
                                     <a class="dropdown-item" href="#">
                                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Profile
                                     </a>
-                                </div>
+                                </div> --}}
                             </li>
 
                         </ul>

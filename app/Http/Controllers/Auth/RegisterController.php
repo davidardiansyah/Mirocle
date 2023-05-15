@@ -71,6 +71,7 @@ class RegisterController extends Controller
             'device_id' => $data['device_id'],
             'password' => Hash::make($data['password']),
         ]);
-        return redirect()->route('fisioterapis.index');
+
+        return $user;
     }
 }

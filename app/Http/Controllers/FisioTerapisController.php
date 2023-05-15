@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use App\Models\SensorDataFinal;
 
 class FisioTerapisController extends Controller
 {
@@ -22,8 +24,28 @@ class FisioTerapisController extends Controller
         $users = User::all()->where('role', '!=', 1);
         return view('/layouts/fisioterapis/input', compact('users'));
     }
-    public function riwayat()
+
+    public function deleteUser($id)
     {
-        return view('/layouts/fisioterapis/riwayat');
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->back()->with('success', 'Data pengguna berhasil dihapus.');
+    }
+
+    public function riwayat()
+    {  
+        $query = SensorDatafinal::query();
+        $pasien = User::all()->where('role', '!=', 1);
+      
+        $sensorDataFinal = $query->paginate(10);
+
+        $sensorDataFinal->load('user'); // Melakukan eager loading relasi 'user'
+    
+        $sensorDataFinal->transform(function ($data) {
+            $data->timestamp = Carbon::createFromTimestamp($data->id_terapi);
+            return $data;
+        });
+    
+        return view('layouts.fisioterapis.riwayat', compact('sensorDataFinal', 'pasien'));
     }
 }
