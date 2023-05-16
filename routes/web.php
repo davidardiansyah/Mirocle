@@ -40,5 +40,3 @@ Route::get('/', function () {
 Route::get('/detakjantung', [SensorLaravel::class, 'detakjantung'])->name('detakjantung');
 
 
-
-
