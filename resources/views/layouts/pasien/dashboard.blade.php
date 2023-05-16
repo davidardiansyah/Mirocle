@@ -117,7 +117,7 @@
                         </div>
                     </div>
                 </div>
-                
+
 
                 {{-- BIODATA PASIEN ADA DISINI  --}}
                 <div class="col-xl-4 col-lg-5">

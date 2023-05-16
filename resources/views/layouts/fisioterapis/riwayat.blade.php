@@ -24,11 +24,14 @@
                         <tbody>
                             @foreach ($sensorDataFinal as $data)
                                 <tr>
-                                    <td class="text-center">{{ $data->user->name }}</td>
+                                    <td class="text-center">{{ Auth::user()->name }}</td>
                                     <td class="text-center">{{ $data->timestamp->format('Y-m-d H:i:s') }}</td>
-                                    <td class="text-center">{{ $data->rata_rata_detak_jantung != 0 ? $data->rata_rata_detak_jantung : '-' }}</td>
+                                    <td class="text-center">
+                                        {{ $data->rata_rata_detak_jantung != 0 ? $data->rata_rata_detak_jantung : '-' }}
+                                    </td>
                                     <td class="text-center">{{ $data->kalori_total != 0 ? $data->kalori_total : '-' }}</td>
-                                    <td class="text-center">{{ $data->putaran_pedal != 0 ? $data->putaran_pedal : '-' }}</td>
+                                    <td class="text-center">{{ $data->putaran_pedal != 0 ? $data->putaran_pedal : '-' }}
+                                    </td>
                                     <td class="text-center">{{ $data->durasi != 0 ? $data->durasi : '-' }}</td>
                                     <td class="text-center">
                                         <a href="{{ route('pasien.index', ['id' => $data->user->id]) }}">Dashboard</a>
