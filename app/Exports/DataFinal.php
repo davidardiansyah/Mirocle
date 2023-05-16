@@ -12,7 +12,8 @@ class DataFinal implements FromQuery, WithHeadings, ShouldQueue
 {
     public function query()
     {
-        return SensorDataFinal::query();
+        $userId = auth()->user()->id; // Ambil ID pengguna yang sedang login
+        return SensorDataFinal::query()->where('user_id', $userId);
     }
 
     public function headings(): array

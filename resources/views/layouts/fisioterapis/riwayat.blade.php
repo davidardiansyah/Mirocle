@@ -12,12 +12,13 @@
                     <table class="table-bordered table" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th class="text-center">Nama </th>
+                                <th class="text-center">Nama Lengkap</th>
                                 <th class="text-center">Tanggal</th>
-                                <th class="text-center">Rata Rata Detak jantung</th>
-                                <th class="text-center">Jumlah Kalori</th>
-                                <th class="text-center">Jumlah Putaran Pedal</th>
-                                <th class="text-center">Durasi</th>
+                                <th class="text-center">Rata Rata Detak jantung (BPM)</th>
+                                <th class="text-center">Jumlah Kalori (KKal)</th>
+                                <th class="text-center">Jumlah Putaran Pedal (Putaran)</th>
+                                <th class="text-center">Durasi (Menit)</th>
+                                <th class="text-center">Dashboard</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -32,13 +33,19 @@
                                     <td class="text-center">{{ $data->putaran_pedal != 0 ? $data->putaran_pedal : '-' }}
                                     </td>
                                     <td class="text-center">{{ $data->durasi != 0 ? $data->durasi : '-' }}</td>
+                                    <td class="text-center">
+                                        <a href="{{ route('pasien.index', ['id' => $data->user->id]) }}">Dashboard</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-                </div>
+                    <!-- Tambahkan kode paginasi di bawah tabel -->
+                    <div class="d-flex justify-content-center">
+                        {{ $sensorDataFinal->links() }}
+                    </div>
+                </div>  
             </div>
         </div>
-    </div>
     </div>
 @endsection
