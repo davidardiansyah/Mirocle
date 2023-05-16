@@ -18,21 +18,29 @@
                             <table class="table-bordered table" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>Nama</th>
-                                        <th>Umur</th>
-                                        <th>Berat Badan</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Riwayat Penyakit</th>
+                                        <th class="text-center">Nama</th>
+                                        <th class="text-center">Umur</th>
+                                        <th class="text-center">Berat Badan</th>
+                                        <th class="text-center">Jenis Kelamin</th>
+                                        <th class="text-center">Riwayat Penyakit</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($users as $user)
                                         <tr>
-                                            <td>{{ $user->name }}</td>
-                                            <td>{{ $user->profile->umur ?? '-' }}th</td>
-                                            <td>{{ $user->profile->berat_badan ?? '-' }}Kg</td>
-                                            <td>{{ $user->profile->jenis_kelamin ?? '-' }}</td>
-                                            <td>{{ $user->profile->riwayat_penyakit ?? '-' }}</td>
+                                            <td class="text-center">{{ $user->name }}</td>
+                                            <td class="text-center">{{ $user->profile->umur ?? '-' }} th</td>
+                                            <td class="text-center">{{ $user->profile->berat_badan ?? '-' }} Kg</td>
+                                            <td class="text-center">
+                                                @if ($user->profile && $user->profile->jenis_kelamin == \App\Models\Profile::PASIEN_LAKI_LAKI)
+                                                    Laki-laki
+                                                @elseif ($user->profile && $user->profile->jenis_kelamin == \App\Models\Profile::PASIEN_PEREMPUAN)
+                                                    Perempuan
+                                                @else
+                                                    -
+                                                @endif
+                                            </td>
+                                            <td class="text-center">{{ $user->profile->riwayat_penyakit ?? '-' }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

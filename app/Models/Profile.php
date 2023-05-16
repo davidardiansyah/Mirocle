@@ -11,6 +11,11 @@ class Profile extends Model
 {
     use HasFactory;
 
+    const PASIEN_LAKI_LAKI = 1;
+    const PASIEN_PEREMPUAN = 2;
+
+    protected $table = 'profiles';
+
     protected $fillable = [
         'user_id',
         'umur',
@@ -18,10 +23,17 @@ class Profile extends Model
         'jenis_kelamin',
         'riwayat_penyakit',
     ];
+
     public function user(): BelongsTo
     {   
         return $this->belongsTo(User::class)->where('role', 2);
-        // return $this->belongsTo(User::class);
     }
-
+    
+    public static function getPilihanJenisKelamin(): array
+    {
+        return [
+            1 => 'Laki-laki',
+            2 => 'Perempuan',
+        ];
+    }
 }

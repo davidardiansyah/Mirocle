@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use App\Models\SensorDataFinal;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
+use App\Models\Profile;
 
 
 class FisioTerapisController extends Controller
@@ -16,12 +17,17 @@ class FisioTerapisController extends Controller
     {
         return view('/layouts/fisioterapis/dashboard');
     }
+
     public function data()
     {
-        $users = User::with('profile')->get();
-        // dd($users);
-        return view('/layouts/fisioterapis/data', compact('users'));
+        $users = User::with('profile')->where('role', '!=', 1)->get();
+        $jumlahLakiLaki = $users->where('profile.jenis_kelamin', 1)->count();
+        $jumlahPerempuan = $users->where('profile.jenis_kelamin', 2)->count();
+    
+        return view('layouts.fisioterapis.data', compact('users', 'jumlahLakiLaki', 'jumlahPerempuan'));
     }
+
+
     public function input()
     {
         $users = User::all()->where('role', '!=', 1);

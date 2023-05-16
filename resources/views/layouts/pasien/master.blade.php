@@ -22,6 +22,7 @@
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
     @livewireStyles
     @stack('css')
+    
 </head>
 
 <body id="page-top">
