@@ -35,8 +35,8 @@
                                             <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
                                         </form>
                                     </td>
-                                   </tr>
-                             @endforeach
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                     <a class="btn btn-primary nav-link" href="{{ route('register') }}">
