@@ -9,4 +9,9 @@ class SensorData extends Model
 {
     use HasFactory;
     protected $table = 'sensor_data';
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->text('detak_jantung')->nullable();
-            $table->text('jumlah_detak_jantung')->nullable();
+            $table->text('durasi')->nullable();
             $table->text('saturasi_oksigen')->nullable();
             $table->text('kalori')->nullable();
             $table->text('putaran_pedal')->nullable();

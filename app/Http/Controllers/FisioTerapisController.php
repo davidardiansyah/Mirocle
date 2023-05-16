@@ -6,6 +6,9 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\SensorDataFinal;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
+
 
 class FisioTerapisController extends Controller
 {
@@ -34,11 +37,11 @@ class FisioTerapisController extends Controller
 
     public function riwayat()
     {  
-        $query = SensorDatafinal::query();
-        $pasien = User::all()->where('role', '!=', 1);
+        $query = SensorDatafinal::orderBy('id', 'desc');
+        $pasien = User::where('role', '!=', 1)->get();
       
-        $sensorDataFinal = $query->paginate(10);
-
+        $sensorDataFinal = $query->get();
+    
         $sensorDataFinal->load('user'); // Melakukan eager loading relasi 'user'
     
         $sensorDataFinal->transform(function ($data) {
@@ -46,6 +49,18 @@ class FisioTerapisController extends Controller
             return $data;
         });
     
+        $currentPage = request()->get('page', 1);
+        $perPage = 10; // Ubah angka ini sesuai dengan jumlah item yang ingin ditampilkan per halaman
+        $offset = ($currentPage - 1) * $perPage;
+        $sensorDataFinal = new LengthAwarePaginator(
+            $sensorDataFinal->slice($offset, $perPage),
+            $sensorDataFinal->count(),
+            $perPage,
+            $currentPage,
+            ['path' => request()->url(), 'query' => request()->query()]
+        );
+    
         return view('layouts.fisioterapis.riwayat', compact('sensorDataFinal', 'pasien'));
     }
+    
 }

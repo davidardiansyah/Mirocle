@@ -33,7 +33,11 @@ class PasienController extends Controller
 
     public function riwayat()
     {
-        $sensorData = SensorData::all();
+        $userId = auth()->user()->id; // Ambil ID pengguna yang sedang login
+        $sensorData = SensorData::whereHas('user', function ($query) use ($userId) {
+            $query->where('user_id', $userId);
+        })->get();
+
         return view('layouts.pasien.riwayat', compact('sensorData'));
     }
 
@@ -57,7 +61,10 @@ class PasienController extends Controller
     }
 
     public function exportexcel(){
-        return Excel::download (new DataFinal, 'data_final.xlsx');
+        $userId = auth()->user()->id; // Ambil ID pengguna yang sedang login
+        $fileName = 'data_final.xlsx';
+    
+        return Excel::download(new DataFinal($userId), $fileName);
     }
 
     public function selectdata(Request $request)
