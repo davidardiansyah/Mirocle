@@ -15,7 +15,11 @@ class FisioTerapisController extends Controller
 {
     public function index()
     {
-        return view('/layouts/fisioterapis/dashboard');
+
+        $users = User::with('profile')->where('role', '!=', 1)->get();
+        $jumlahLakiLaki = $users->where('profile.jenis_kelamin', 1)->count();
+        $jumlahPerempuan = $users->where('profile.jenis_kelamin', 2)->count();
+        return view('layouts.fisioterapis.dashboard', compact('users', 'jumlahLakiLaki', 'jumlahPerempuan'));
     }
 
     public function data()
