@@ -7,13 +7,20 @@
 @section('content')
     <!-- Begin Page Content -->
     <div class="container-fluid">
-
+        <!-- Tambahkan Pasien Button -->
+        <div class="row mb-3">
+            <div class="col-md-12 text-right">
+                <a class="btn btn-primary" href="{{ route('register') }}">
+                    Tambahkan Pasien
+                </a>
+            </div>
+        </div>
 
         <!-- DataTales Example -->
         <div class="card mb-4 shadow">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table-bordered table" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th class="text-center">Device id</th>
@@ -39,10 +46,12 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <a class="btn btn-primary nav-link" href="{{ route('register') }}">
-                        <span>Tambahkan Pasien</span>
-                    </a>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                {{ $users->links() }}
             </div>
         </div>
     </div>

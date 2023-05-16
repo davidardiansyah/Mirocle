@@ -31,14 +31,23 @@ class PasienController extends Controller
         return view('layouts.pasien.grafik');
     }
 
-    public function riwayat()
+    public function riwayat(Request $request)
     {
         $userId = auth()->user()->id; // Ambil ID pengguna yang sedang login
-        $sensorData = SensorData::whereHas('user', function ($query) use ($userId) {
+        $tanggal = $request->input('tanggal');
+        
+        $query = SensorData::whereHas('user', function ($query) use ($userId) {
             $query->where('user_id', $userId);
-        })->get();
-
-        return view('layouts.pasien.riwayat', compact('sensorData'));
+        });
+        
+        if ($tanggal) {
+            $tanggal = Carbon::parse($tanggal);
+            $query->whereDate('timestamp', $tanggal);
+        }
+        
+        $sensorData = $query->simplePaginate(10);
+        
+        return view('layouts.pasien.riwayat', compact('sensorData', 'tanggal'));
     }
 
     public function update_profile(Request $request)
@@ -67,21 +76,21 @@ class PasienController extends Controller
         return Excel::download(new DataFinal($userId), $fileName);
     }
 
-    public function selectdata(Request $request)
-    {
-        $tanggal = $request->input('tanggal');
+    // public function selectdata(Request $request)
+    // {
+    //     $tanggal = $request->input('tanggal');
     
-        $query = SensorData::query();
+    //     $query = SensorData::query();
     
-        if ($tanggal) {
-            $tanggal = Carbon::parse($tanggal);
-            $query->whereDate('timestamp', $tanggal);
-        }
+    //     if ($tanggal) {
+    //         $tanggal = Carbon::parse($tanggal);
+    //         $query->whereDate('timestamp', $tanggal);
+    //     }
     
-        $sensorData = $query->paginate(10);
+    //     $sensorData = $query->paginate(5);
     
-        return view('layouts.pasien.riwayat', compact('sensorData', 'tanggal'));
-    }
+    //     return view('layouts.pasien.riwayat', compact('sensorData', 'tanggal'));
+    // }
     
 
     }

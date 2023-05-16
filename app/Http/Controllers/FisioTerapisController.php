@@ -22,20 +22,18 @@ class FisioTerapisController extends Controller
         return view('layouts.fisioterapis.dashboard', compact('users', 'jumlahLakiLaki', 'jumlahPerempuan'));
     }
 
+    // akan dilakukan pagination
     public function data()
     {
-        $users = User::with('profile')->where('role', '!=', 1)->get();
-        $jumlahLakiLaki = $users->where('profile.jenis_kelamin', 1)->count();
-        $jumlahPerempuan = $users->where('profile.jenis_kelamin', 2)->count();
-    
-        return view('layouts.fisioterapis.data', compact('users', 'jumlahLakiLaki', 'jumlahPerempuan'));
+        $users = User::with('profile')->where('role', '!=', 1)->simplePaginate(5);
+        return view('layouts.fisioterapis.data', compact('users'));
     }
 
-
+    // akan dilakukan pagination
     public function input()
     {
-        $users = User::all()->where('role', '!=', 1);
-        return view('/layouts/fisioterapis/input', compact('users'));
+        $users = User::where('role', '!=', 1)->simplepaginate(5);
+        return view('layouts.fisioterapis.input', compact('users'));
     }
 
     public function deleteUser($id)
@@ -45,6 +43,7 @@ class FisioTerapisController extends Controller
         return redirect()->back()->with('success', 'Data pengguna berhasil dihapus.');
     }
 
+    // akan dilakukan pagination
     public function riwayat()
     {  
         $query = SensorDatafinal::orderBy('id', 'desc');

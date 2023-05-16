@@ -9,32 +9,41 @@
         <div class="card mb-4 shadow">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table-bordered table" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th class="text-center">Detak Jantung</th>
-                                <th class="text-center">Saturasi Oksigen</th>
-                                <th class="text-center">Kalori</th>
-                                <th class="text-center">Jumlah Putaran Pedal</th>
-                                <th class="text-center">Waktu</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($sensorData as $data)
+                    <div class="table-wrapper-scroll-x">
+                        <table class="table-bordered table" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
                                 <tr>
-                                    <td class="text-center">{{ $data->detak_jantung != 0 ? $data->detak_jantung : '-' }}
-                                    </td>
-                                    <td class="text-center">
-                                        {{ $data->saturasi_oksigen != 0 ? $data->saturasi_oksigen : '-' }}</td>
-                                    <td class="text-center">{{ $data->kalori != 0 ? $data->kalori : '-' }}</td>
-                                    <td class="text-center">{{ $data->putaran_pedal != 0 ? $data->putaran_pedal : '-' }}
-                                    </td>
-                                    <td class="text-center">{{ $data->timestamp }}</td>
+                                    <th class="text-center">No.</th>
+                                    <th class="text-center">Detak Jantung</th>
+                                    <th class="text-center">Saturasi Oksigen</th>
+                                    <th class="text-center">Kalori</th>
+                                    <th class="text-center">Jumlah Putaran Pedal</th>
+                                    <th class="text-center">Waktu</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                    <form method="GET" action="{{ route('pasien.selectdata') }}">
+                            </thead>
+                            <tbody>
+                                @php
+                                    $counter = ($sensorData->currentPage() - 1) * $sensorData->perPage() + 1;
+                                @endphp
+                                @foreach ($sensorData as $data)
+                                    <tr>
+                                        <td class="text-center">{{ $counter++ }}</td>
+                                        <td class="text-center">{{ $data->detak_jantung != 0 ? $data->detak_jantung : '-' }}</td>
+                                        <td class="text-center">{{ $data->saturasi_oksigen != 0 ? $data->saturasi_oksigen : '-' }}</td>
+                                        <td class="text-center">{{ $data->kalori != 0 ? $data->kalori : '-' }}</td>
+                                        <td class="text-center">{{ $data->putaran_pedal != 0 ? $data->putaran_pedal : '-' }}</td>
+                                        <td class="text-center">{{ $data->timestamp }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            {{ $sensorData->links() }}
+                        </div>
+                    </div>
+                    <form method="GET" action="{{ route('pasien.riwayat') }}">
                         <div class="form-group">
                             <label for="tanggal">Pilih Tanggal:</label>
                             <input type="date" name="tanggal" id="tanggal" class="form-control" required>
