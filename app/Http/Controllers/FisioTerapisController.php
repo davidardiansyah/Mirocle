@@ -45,19 +45,19 @@ class FisioTerapisController extends Controller
 
     // akan dilakukan pagination
     public function riwayat()
-    {  
+    {
         $query = SensorDatafinal::orderBy('id', 'desc');
         $pasien = User::where('role', '!=', 1)->get();
-      
+
         $sensorDataFinal = $query->get();
-    
+
         $sensorDataFinal->load('user'); // Melakukan eager loading relasi 'user'
-    
+
         $sensorDataFinal->transform(function ($data) {
             $data->timestamp = Carbon::createFromTimestamp($data->id_terapi);
             return $data;
         });
-    
+
         $currentPage = request()->get('page', 1);
         $perPage = 10; // Ubah angka ini sesuai dengan jumlah item yang ingin ditampilkan per halaman
         $offset = ($currentPage - 1) * $perPage;
@@ -68,8 +68,7 @@ class FisioTerapisController extends Controller
             $currentPage,
             ['path' => request()->url(), 'query' => request()->query()]
         );
-    
+
         return view('layouts.fisioterapis.riwayat', compact('sensorDataFinal', 'pasien'));
     }
-    
 }
