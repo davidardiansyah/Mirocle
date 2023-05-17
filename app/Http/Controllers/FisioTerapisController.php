@@ -35,7 +35,12 @@ class FisioTerapisController extends Controller
         $users = User::where('role', '!=', 1)->simplepaginate(5);
         return view('layouts.fisioterapis.input', compact('users'));
     }
-
+    
+    public function register()
+    {
+        return view('layouts.fisioterapis.register');
+    }
+    
     public function deleteUser($id)
     {
         $user = User::findOrFail($id);
