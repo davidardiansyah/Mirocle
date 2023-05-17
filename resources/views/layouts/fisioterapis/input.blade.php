@@ -13,6 +13,7 @@
                 <a class="btn btn-primary" href="{{ route('fisioterapis.register') }}">
                     Tambahkan Pasien
                 </a>
+                
             </div>
         </div>
 
