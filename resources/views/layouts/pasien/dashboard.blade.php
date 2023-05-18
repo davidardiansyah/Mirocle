@@ -40,7 +40,7 @@
                                     <div class="font-weight-bold text-warning text-uppercase mb-1 text-xs">
                                         Durasi</div>
                                     <div class="h5 font-weight-bold mb-0 text-gray-800"> <span
-                                            id="jumlah_detak_jantung">{{ $durasi ?? '-' }}</span> menit</p>
+                                            id="jumlah_detak_jantung">{{ $durasi ?? '-' }}</span> Detik</p>
                                     </div>
                                 </div>
                             </div>
