@@ -12,22 +12,13 @@ class DataFinal implements FromQuery, WithHeadings, ShouldQueue
 {
     public function query()
     {
-        $userId = auth()->user()->id; // Ambil ID pengguna yang sedang login
-        return SensorDataFinal::query()->where('user_id', $userId);
+        $userId = auth()->user()->id;
+        return SensorDataFinal::select('id', 'user_id', 'id_terapi', 'waktu_mulai', 'waktu_selesai', 'rata_rata_detak_jantung', 'kalori_total', 'putaran_pedal', 'durasi')
+            ->where('user_id', $userId);
     }
 
     public function headings(): array
     {
-        $columns = $this->getColumns();
-        return array_values($columns);
-    }
-
-    private function getColumns(): array
-    {
-        /** @var Builder $query */
-        $query = $this->query();
-        $columns = $query->getConnection()->getSchemaBuilder()->getColumnListing($query->from);
-
-        return $columns;
+        return ['ID', 'User ID', 'ID Terapi', 'Waktu Mulai', 'Waktu Selesai', 'Rata-rata Detak Jantung', 'Kalori Total', 'Putaran Pedal', 'Durasi'];
     }
 }
