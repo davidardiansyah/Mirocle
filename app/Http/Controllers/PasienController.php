@@ -11,8 +11,6 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Models\SensorData;
 use Carbon\Carbon;
 
-
-
 class PasienController extends Controller
 {
     public function index()
@@ -28,6 +26,27 @@ class PasienController extends Controller
 
     public function grafik()
     {
+        // $userId = auth()->user()->id; // Ambil ID pengguna yang sedang login
+    
+        // $query = SensorData::whereHas('user', function ($query) use ($userId) {
+        //     $query->where('user_id', $userId);
+        // });
+        
+        // $timestamps = $query->pluck('timestamp');
+        
+        // $labels = $timestamps->map(function ($timestamp) {
+        //     $carbonTimestamp = Carbon::parse($timestamp);
+        //     $label = $carbonTimestamp->format('H:i:s'); // Format label dengan tanggal dan waktu lengkap
+        //     return $label;
+        // });
+        
+        // $detak_jantung = $query->pluck('detak_jantung');
+        // $saturasi_oksigen = $query->pluck('saturasi_oksigen');
+        // $kalori = $query->pluck('kalori');
+        // $putaran_pedal = $query->pluck('putaran_pedal');
+        
+        // return view('layouts.pasien.grafik', compact('labels', 'detak_jantung', 'saturasi_oksigen', 'kalori', 'putaran_pedal'));
+        
         return view('layouts.pasien.grafik');
     }
 
