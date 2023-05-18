@@ -193,24 +193,47 @@
 @endsection
 
 @section('jsekstra')
-    <script type="text/javascript">
-        $(document).ready(function() {
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    setInterval(function() {
+        $.ajax({url: '/detakjantung', // URL untuk mengambil data
+                type: 'GET', // Metode HTTP
+                success: function(data) {
+                    console.log(data);
+                    $("#detak_jantung").text(data.detak_jantung);
+                    $("#jumlah_detak_jantung").text(data.durasi);
+                    $("#saturasi_oksigen").text(data.saturasi_oksigen);
+                    $("#putaran_pedal").text(data.putaran_pedal);
+                    $("#kalori").text(data.kalori);
+                },
+            });
+        }, 1000); // 1000ms = 1s
+    });
 
-            setInterval(function() {
-                $.ajax({
-                    url: '/detakjantung', // URL to request data from
+    var labels = @json($labels);
+    var users = @json($totalTerapi);
 
-                    type: 'GET', // HTTP method
-                    success: function(data) {
-                        console.log(data);
-                        $("#detak_jantung").text(data.detak_jantung);
-                        $("#jumlah_detak_jantung").text(data.durasi);
-                        $("#saturasi_oksigen").text(data.saturasi_oksigen);
-                        $("#putaran_pedal").text(data.putaran_pedal);
-                        $("#kalori").text(data.kalori);
-                    },
-                });
-            }, 1000); //1000ms = 1s
-        });
-    </script>
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Total Terapi',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: users,
+        }]
+    };
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {}
+    };
+
+    const myChart = new Chart(
+        document.getElementById('total-terapi'),
+        config
+    );
+</script>
 @endsection

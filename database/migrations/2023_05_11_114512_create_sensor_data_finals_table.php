@@ -23,7 +23,7 @@ return new class extends Migration
             $table->text('kalori_total')->nullable();
             $table->text('putaran_pedal');
             $table->text('durasi')->nullable();
-            
+            $table->timestamp('timestamp');
         });
     }
 
