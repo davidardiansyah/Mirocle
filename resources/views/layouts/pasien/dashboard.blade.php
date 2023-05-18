@@ -155,13 +155,21 @@
                                         @endif
                                     </label>
                                     </label></div>
-                                <div class="col-md-10 mx-10"><label class="labels">Jenis Kelamin :
-                                        @if ($profile)
-                                            {{ $profile->jenis_kelamin }}
-                                        @else
-                                            '-'
-                                        @endif
-                                    </label></div>
+                                    <div class="col-md-10 mx-10">
+                                        <label class="labels">Jenis Kelamin :
+                                            @if ($profile)
+                                                @if ($profile->jenis_kelamin == 1)
+                                                    Laki-laki
+                                                @elseif ($profile->jenis_kelamin == 2)
+                                                    Perempuan
+                                                @else
+                                                    -
+                                                @endif
+                                            @else
+                                                -
+                                            @endif
+                                        </label>
+                                    </div>
                                 <div class="col-md-10 mx-10"><label class="labels">Riwayat Penyakit :
                                         @if ($profile)
                                             {{ $profile->riwayat_penyakit }}

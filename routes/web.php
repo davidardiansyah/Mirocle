@@ -26,7 +26,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/update-profile', [PasienController::class, 'update_profile'])->name('pasien.update_profile');
         Route::get('/exportexcel', [PasienController::class, 'exportexcel'])->name('exportexcel');
         Route::get('/riwayat', [PasienController::class, 'riwayat'])->name('pasien.riwayat');
-        Route::get('/selectdata', [PasienController::class, 'selectdata'])->name('pasien.selectdata');
+        // Route::get('/selectdata', [PasienController::class, 'selectdata'])->name('pasien.selectdata');
     });
 });
 
