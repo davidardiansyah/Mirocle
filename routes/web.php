@@ -15,6 +15,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', [FisioTerapisController::class, 'index'])->name('fisioterapis.index');
         Route::get('/data-pasien', [FisioTerapisController::class, 'data'])->name('fisioterapis.data');
         Route::get('/input-pasien', [FisioTerapisController::class, 'input'])->name('fisioterapis.input');
+        Route::get('/register', [FisioTerapisController::class, 'register'])->name('fisioterapis.register');
         Route::delete('/delete-user/{id}', [FisioTerapisController::class, 'deleteUser'])->name('delete_user');
         Route::get('/riwayat-pasien', [FisioTerapisController::class, 'riwayat'])->name('fisioterapis.riwayat');
     });

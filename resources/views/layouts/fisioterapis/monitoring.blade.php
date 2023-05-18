@@ -22,9 +22,11 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-auto">
-                                    <div class="font-weight-bold text-primary text-uppercase mb-1 text-xs">
-                                        Detak Jantung</div>
-                                    <div class="h5 font-weight-bold mb-0 text-gray-800">80/BPM</div>
+                                    <div class="font-weight-bold text-primary text-uppercase mb-1 text-xs"> Detak Jantung
+                                    </div>
+                                    <div class="h5 font-weight-bold mb-0 text-gray-800"> <span
+                                            id="detak_jantung">{{ $detak_jantung ?? '-' }}</span> BPM</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -38,7 +40,9 @@
                                 <div class="col-auto">
                                     <div class="font-weight-bold text-warning text-uppercase mb-1 text-xs">
                                         Durasi</div>
-                                    <div class="h5 font-weight-bold mb-0 text-gray-800">10 Menit</div>
+                                    <div class="h5 font-weight-bold mb-0 text-gray-800"> <span
+                                            id="jumlah_detak_jantung">{{ $durasi ?? '-' }}</span> menit</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -52,7 +56,9 @@
                                 <div class="col-auto">
                                     <div class="font-weight-bold text-info text-uppercase mb-1 text-xs">
                                         Saturasi Oksigen</div>
-                                    <div class="h5 font-weight-bold mb-0 text-gray-800">80%</div>
+                                    <div class="h5 font-weight-bold mb-0 text-gray-800"><span
+                                            id="saturasi_oksigen">{{ $saturasi_oksigen ?? '-' }}</span> %</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +72,9 @@
                                 <div class="col-auto">
                                     <div class="font-weight-bold text-success text-uppercase mb-1 text-xs">
                                         Jumlah Putaran Pedal</div>
-                                    <div class="h5 font-weight-bold mb-0 text-gray-800">10</div>
+                                    <div class="h5 font-weight-bold mb-0 text-gray-800"><span
+                                            id="putaran_pedal">{{ $putaran_pedal ?? '-' }}</span> kali</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -80,7 +88,9 @@
                                 <div class="col-auto">
                                     <div class="font-weight-bold text-danger text-uppercase mb-1 text-xs">
                                         Jumlah Kalori Terbakar</div>
-                                    <div class="h5 font-weight-bold mb-0 text-gray-800">2500</div>
+                                    <div class="h5 font-weight-bold mb-0 text-gray-800"><span
+                                            id="kalori">{{ $kalori ?? '- ' }}</span> KKal</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +101,7 @@
 
             <div class="row">
 
-                <!-- Area Chart -->
+                {{-- DAERAH GRAFIK TOTAL TERAPI --}}
                 <div class="col-xl-8 col-lg-7">
                     <div class="card mb-4 shadow">
                         <!-- Card Header - Dropdown -->
@@ -109,7 +119,8 @@
                     </div>
                 </div>
 
-                <!-- Pie Chart -->
+
+                {{-- BIODATA PASIEN ADA DISINI  --}}
                 <div class="col-xl-4 col-lg-5">
                     <div class="card mb-4 shadow">
                         <!-- Card Header - Dropdown -->
@@ -123,24 +134,28 @@
                                     <img class="rounded-circle" width="130px"
                                         src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
                                 </div>
-                                <div class="col-md-10 mx-10"><label class="labels">Nama : {{ Auth::user()->name }}
-
+                                <div class="col-md-10 mx-10"><label class="labels">Nama :
+                                        @if (Auth::check())
+                                            {{ Auth::user()->name }}
+                                        @else
+                                            '-'
+                                        @endif
                                     </label></div>
                                 <div class="col-md-10 mx-10"><label class="labels">Umur :
                                         @if ($profile)
-                                            {{ $profile->umur }}th
+                                            {{ $profile->umur }}
                                         @else
                                             '-'
                                         @endif
                                     </label></div>
                                 <div class="col-md-10 mx-10"><label class="labels">Berat Badan :
                                         @if ($profile)
-                                            {{ $profile->berat_badan }}Kg
+                                            {{ $profile->berat_badan }}
                                         @else
                                             '-'
                                         @endif
+                                    </label>
                                     </label></div>
-
                                 <div class="col-md-10 mx-10"><label class="labels">Jenis Kelamin :
                                         @if ($profile)
                                             {{ $profile->jenis_kelamin }}

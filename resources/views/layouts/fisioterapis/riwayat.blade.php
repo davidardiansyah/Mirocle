@@ -34,7 +34,11 @@
                                     </td>
                                     <td class="text-center">{{ $data->durasi != 0 ? $data->durasi : '-' }}</td>
                                     <td class="text-center">
-                                        <a href="{{ route('pasien.index', ['id' => $data->user->id]) }}">Dashboard</a>
+                                        @if ($data->user)
+                                            <a href="{{ route('pasien.index', ['id' => $data->user->id]) }}">Dashboard</a>
+                                        @else
+                                            N/A
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach
@@ -44,7 +48,7 @@
                     <div class="d-flex justify-content-center">
                         {{ $sensorDataFinal->links() }}
                     </div>
-                </div>  
+                </div>
             </div>
         </div>
     </div>
