@@ -18,6 +18,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/register', [FisioTerapisController::class, 'register'])->name('fisioterapis.register');
         Route::delete('/delete-user/{id}', [FisioTerapisController::class, 'deleteUser'])->name('delete_user');
         Route::get('/riwayat-pasien', [FisioTerapisController::class, 'riwayat'])->name('fisioterapis.riwayat');
+        Route::get('/grafik', [FisioTerapisController::class, 'grafik'])->name('fisioterapis.grafik');
     });
 
     Route::prefix('pasien')->group(function () {
@@ -27,17 +28,13 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/update-profile', [PasienController::class, 'update_profile'])->name('pasien.update_profile');
         Route::get('/exportexcel', [PasienController::class, 'exportexcel'])->name('exportexcel');
         Route::get('/riwayat', [PasienController::class, 'riwayat'])->name('pasien.riwayat');
-        // Route::get('/selectdata', [PasienController::class, 'selectdata'])->name('pasien.selectdata');
     });
 });
 
 Route::get('/', function () {
     return redirect('login');
 })->middleware('guest');
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-// Route::get('/', [PasienController::class, 'dashboard'])->name('pasien.dashboard');
 Route::get('/detakjantung', [SensorLaravel::class, 'detakjantung'])->name('detakjantung');
 
 

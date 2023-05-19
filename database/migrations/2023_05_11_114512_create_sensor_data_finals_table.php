@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('waktu_mulai')->nullable();
             $table->text('waktu_selesai')->nullable();
             $table->text('rata_rata_detak_jantung')->nullable();
+            $table->text('rata_rata_saturasi_oksigen')->nullable();
             $table->text('kalori_total')->nullable();
             $table->text('putaran_pedal');
             $table->text('durasi')->nullable();

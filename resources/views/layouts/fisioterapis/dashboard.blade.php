@@ -50,6 +50,7 @@
     </div>
 
     <!-- Area Chart -->
+    <!-- Area Chart -->
     <div class="col-xl-8 col-lg-7">
         <div class="card mb-4 shadow">
             <!-- Card Header - Dropdown -->
@@ -61,11 +62,38 @@
             <!-- Card Body -->
             <div class="card-body">
                 <div class="chart-area">
-                    <canvas id="total-pasien"></canvas>
+                    <canvas id="jumlah-pasien"></canvas>
                 </div>
             </div>
-
         </div>
     </div>
-    </div>
+
+    <script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script type="text/javascript">
+            var labels = @json($labels);
+            var terapiData = @json($totalPasienTerapi);
+        
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Total Terapi',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: terapiData, 
+                }]
+            };
+        
+            const config = {
+                type: 'line',
+                data: data,
+                options: {}
+            };
+        
+            const myChart = new Chart(
+                document.getElementById('jumlah-pasien'),
+                config
+            );
+        </script>
 @endsection

@@ -14,24 +14,26 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">No.</th>
-                                    <th class="text-center">Detak Jantung</th>
-                                    <th class="text-center">Saturasi Oksigen</th>
-                                    <th class="text-center">Kalori</th>
+                                    <th class="text-center">Rata Rata Detak Jantung</th>
+                                    <th class="text-center">Rata Rata Saturasi Oksigen</th>
+                                    <th class="text-center">Kalori Total</th>
                                     <th class="text-center">Jumlah Putaran Pedal</th>
+                                    <th class="text-center">Durasi</th>
                                     <th class="text-center">Waktu</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php
-                                    $counter = ($sensorData->currentPage() - 1) * $sensorData->perPage() + 1;
+                                    $counter = ($sensorDataFinal->currentPage() - 1) * $sensorDataFinal->perPage() + 1;
                                 @endphp
-                                @foreach ($sensorData as $data)
+                                @foreach ($sensorDataFinal as $data)
                                     <tr>
                                         <td class="text-center">{{ $counter++ }}</td>
-                                        <td class="text-center">{{ $data->detak_jantung != 0 ? $data->detak_jantung : '-' }}</td>
-                                        <td class="text-center">{{ $data->saturasi_oksigen != 0 ? $data->saturasi_oksigen : '-' }}</td>
-                                        <td class="text-center">{{ $data->kalori != 0 ? $data->kalori : '-' }}</td>
+                                        <td class="text-center">{{ $data->rata_rata_detak_jantung != 0 ? $data->rata_rata_detak_jantung : '-' }}</td>
+                                        <td class="text-center">{{ $data->rata_rata_saturasi_oksigen != 0 ? $data->rata_rata_saturasi_oksigen : '-' }}</td>
+                                        <td class="text-center">{{ $data->kalori_total != 0 ? $data->kalori_total : '-' }}</td>
                                         <td class="text-center">{{ $data->putaran_pedal != 0 ? $data->putaran_pedal : '-' }}</td>
+                                        <td class="text-center">{{ $data->durasi != 0 ? $data->durasi : '-' }}</td>
                                         <td class="text-center">{{ $data->timestamp }}</td>
                                     </tr>
                                 @endforeach
@@ -40,7 +42,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            {{ $sensorData->links() }}
+                            {{ $sensorDataFinal->links() }}
                         </div>
                     </div>
                     <form method="GET" action="{{ route('pasien.riwayat') }}">
