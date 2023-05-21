@@ -4,7 +4,6 @@
     Dashboard
 @endsection
 
-
 @section('content')
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -41,7 +40,7 @@
                                     <div class="font-weight-bold text-warning text-uppercase mb-1 text-xs">
                                         Durasi</div>
                                     <div class="h5 font-weight-bold mb-0 text-gray-800"> <span
-                                            id="jumlah_detak_jantung">{{ $durasi ?? '-' }}</span> menit</p>
+                                            id="jumlah_detak_jantung">{{ $durasi ?? '-' }}</span> Detik</p>
                                     </div>
                                 </div>
                             </div>
@@ -156,13 +155,21 @@
                                         @endif
                                     </label>
                                     </label></div>
-                                <div class="col-md-10 mx-10"><label class="labels">Jenis Kelamin :
-                                        @if ($profile)
-                                            {{ $profile->jenis_kelamin }}
-                                        @else
-                                            '-'
-                                        @endif
-                                    </label></div>
+                                    <div class="col-md-10 mx-10">
+                                        <label class="labels">Jenis Kelamin :
+                                            @if ($profile)
+                                                @if ($profile->jenis_kelamin == 1)
+                                                    Laki-laki
+                                                @elseif ($profile->jenis_kelamin == 2)
+                                                    Perempuan
+                                                @else
+                                                    -
+                                                @endif
+                                            @else
+                                                -
+                                            @endif
+                                        </label>
+                                    </div>
                                 <div class="col-md-10 mx-10"><label class="labels">Riwayat Penyakit :
                                         @if ($profile)
                                             {{ $profile->riwayat_penyakit }}
@@ -183,4 +190,50 @@
             <i class="fas fa-angle-up"></i>
         </a>
     </div>
+@endsection
+
+@section('jsekstra')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    setInterval(function() {
+        $.ajax({url: '/detakjantung', // URL untuk mengambil data
+                type: 'GET', // Metode HTTP
+                success: function(data) {
+                    console.log(data);
+                    $("#detak_jantung").text(data.detak_jantung);
+                    $("#jumlah_detak_jantung").text(data.durasi);
+                    $("#saturasi_oksigen").text(data.saturasi_oksigen);
+                    $("#putaran_pedal").text(data.putaran_pedal);
+                    $("#kalori").text(data.kalori);
+                },
+            });
+        }, 1000); // 1000ms = 1s
+    });
+
+    var labels = @json($labels);
+    var users = @json($totalTerapi);
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Total Terapi',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: users,
+        }]
+    };
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {}
+    };
+
+    const myChart = new Chart(
+        document.getElementById('total-terapi'),
+        config
+    );
+</script>
 @endsection

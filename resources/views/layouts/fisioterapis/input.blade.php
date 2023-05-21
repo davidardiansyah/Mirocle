@@ -10,7 +10,7 @@
         <!-- Tambahkan Pasien Button -->
         <div class="row mb-3">
             <div class="col-md-12 text-right">
-                <a class="btn btn-primary" href="{{ route('fisioterapis.register') }}">
+                <a class="btn btn-primary" href="{{ route('register') }}">
                     Tambahkan Pasien
                 </a>
                 

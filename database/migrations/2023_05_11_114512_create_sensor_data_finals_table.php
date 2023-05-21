@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sensor_data_finals');
+        Schema::dropIfExists('sensor_data_final');
     }
 };
