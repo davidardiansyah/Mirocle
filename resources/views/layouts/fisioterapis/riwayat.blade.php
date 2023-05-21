@@ -23,6 +23,7 @@
                             </tr>
                         </thead>
                         <tbody>
+
                             @foreach ($sensorDataFinal as $data)
                                 <tr>
                                     <td class="text-center">
@@ -47,7 +48,7 @@
                                         {{ $data->durasi != 0 ? $data->durasi : '-' }}</td>
                                     <td class="text-center">
                                         @if ($data->user)
-                                            <a href="{{ route('fisioterapis.grafik') }}">Dashboard</a>
+                                            <a href="{{ route('fisioterapis.monitoring', $data->user->id) }}">Dashboard</a>
                                         @else
                                             N/A
                                         @endif

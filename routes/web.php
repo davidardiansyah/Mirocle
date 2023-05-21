@@ -15,10 +15,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', [FisioTerapisController::class, 'index'])->name('fisioterapis.index');
         Route::get('/data-pasien', [FisioTerapisController::class, 'data'])->name('fisioterapis.data');
         Route::get('/input-pasien', [FisioTerapisController::class, 'input'])->name('fisioterapis.input');
-        Route::get('/register', [FisioTerapisController::class, 'register'])->name('fisioterapis.register');
+        Route::post('/register', [FisioTerapisController::class, 'register'])->name('fisioterapis.register');
         Route::delete('/delete-user/{id}', [FisioTerapisController::class, 'deleteUser'])->name('delete_user');
         Route::get('/riwayat-pasien', [FisioTerapisController::class, 'riwayat'])->name('fisioterapis.riwayat');
         Route::get('/grafik', [FisioTerapisController::class, 'grafik'])->name('fisioterapis.grafik');
+        Route::get('/monitoring/{id}', [FisioTerapisController::class, 'monitoring'])->name('fisioterapis.monitoring');
     });
 
     Route::prefix('pasien')->group(function () {
@@ -36,5 +37,3 @@ Route::get('/', function () {
 })->middleware('guest');
 
 Route::get('/detakjantung', [SensorLaravel::class, 'detakjantung'])->name('detakjantung');
-
-

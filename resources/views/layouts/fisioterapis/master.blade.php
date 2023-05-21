@@ -29,7 +29,9 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-thin fa-brain"></i>
                 </div>
+                
                 <div class="sidebar-brand-text mx-3">MIROCLE </div>
+                
             </a>
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -108,113 +110,6 @@
                         <!-- Topbar Navbar -->
                         <ul class="navbar-nav ml-auto">
 
-                            <!-- Nav Item - Alerts -->
-                            <li class="nav-item dropdown no-arrow mx-1">
-                                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-bell fa-fw"></i>
-                                    <!-- Counter - Alerts -->
-                                    <span class="badge badge-danger badge-counter">3+</span>
-                                </a>
-                                <!-- Dropdown - Alerts -->
-                                <div class="dropdown-list dropdown-menu dropdown-menu-right animated--grow-in shadow"
-                                    aria-labelledby="alertsDropdown">
-                                    <h6 class="dropdown-header">
-                                        Alerts Center
-                                    </h6>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="mr-3">
-                                            <div class="icon-circle bg-primary">
-                                                <i class="fas fa-exclamation-triangle text-white"></i>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="small text-gray-500">Februari 01, 2023</div>
-                                            <span class="font-weight-bold">David Ardiansyah melakukan terapi</span>
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="mr-3">
-                                            <div class="icon-circle bg-success">
-                                                <i class="fas fa-exclamation-triangle text-white"></i>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="small text-gray-500">Januari 12, 2023</div>
-                                            David Ardiansyah melakukan terapi
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="mr-3">
-                                            <div class="icon-circle bg-warning">
-                                                <i class="fas fa-exclamation-triangle text-white"></i>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="small text-gray-500">December 07, 2022</div>
-                                            Arief Mahendra melakukan terapi
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item small text-center text-gray-500" href="#">Show All
-                                        Alerts</a>
-                                </div>
-
-                                <!-- Nav Item - Messages -->
-                            <li class="nav-item dropdown no-arrow mx-1">
-                                <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown"
-                                    role="button" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    <i class="fas fa-envelope fa-fw"></i>
-                                    <!-- Counter - Messages -->
-                                    <span class="badge badge-danger badge-counter">7</span>
-                                </a>
-                                <!-- Dropdown - Messages -->
-                                <div class="dropdown-list dropdown-menu dropdown-menu-right animated--grow-in shadow"
-                                    aria-labelledby="messagesDropdown">
-                                    <h6 class="dropdown-header">
-                                        Message Center
-                                    </h6>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="font-weight-bold">
-                                            <div class="text-truncate">Hi there! I am wondering if you can help me with
-                                                a
-                                                problem I've been having.</div>
-                                            <div class="small text-gray-500">Emily Fowler · 58m</div>
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div>
-                                            <i class="fa-regular fa-envelope"></i>
-                                            <div class="text-truncate">I have the photos that you ordered last month,
-                                                how
-                                                would you like them sent to you?</div>
-                                            <div class="small text-gray-500">Jae Chun · 1d</div>
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div>
-                                            <div class="text-truncate">Last month's report looks great, I am very happy
-                                                with
-                                                the progress so far, keep up the good work!</div>
-                                            <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div>
-                                            <div class="text-truncate">Am I a good boy? The reason I ask is because
-                                                someone
-                                                told me that people say this to all dogs, even if they aren't good...
-                                            </div>
-                                            <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item small text-center text-gray-500" href="#">Read More
-                                        Messages</a>
-                                </div>
-                            </li>
-
-                            <div class="topbar-divider d-none d-sm-block"></div>
-
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -246,22 +141,6 @@
                     <i class="fas fa-angle-up"></i>
                 </a>
 
-                <!-- Bootstrap core JavaScript-->
-                <script src="{{ asset('js/vendor/jquery/jquery.min.js') }}"></script>
-                <script src="{{ asset('js/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-                <!-- Core plugin JavaScript-->
-                <script src="{{ asset('js/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-
-                <!-- Custom scripts for all pages-->
-                <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
-
-                <!-- Page level plugins -->
-                <script src="{{ asset('js/vendor/chart.js/Chart.min.js') }}"></script>
-
-                <!-- Page level custom scripts -->
-                <script src="{{ asset('js/demo/chart-total-pasien.php') }}"></script>
-                <script src="{{ asset('js/demo/chart-pie-demo.js') }}"></script>
             </div>
         </div>
     </div>

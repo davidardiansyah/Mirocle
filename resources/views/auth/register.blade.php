@@ -11,6 +11,7 @@
 
     <title>Register Pasien</title>
 
+
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
@@ -18,6 +19,7 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
+
 
 <body class="bg-gradient-info">
 
@@ -41,7 +43,7 @@
                                     <div class="text-center">
                                         <h1 class="h4 mb-4 text-gray-900">MIROCLE</h1>
                                     </div>
-                                    <form method="POST" action="{{ route('register') }}">
+                                    <form method="POST" action="{{ route('fisioterapis.register') }}">
                                         @csrf
 
                                         <div class="form-group">
@@ -98,9 +100,9 @@
                                             @enderror
                                         </div>
                                         <div class="text-center">
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">
-                                            Register
-                                        </button>
+                                            <button type="submit" class="btn btn-primary btn-user btn-block">
+                                                Register
+                                            </button>
                                     </form>
                                     <hr>
                                 </div>
