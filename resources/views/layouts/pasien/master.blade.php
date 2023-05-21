@@ -142,17 +142,7 @@
     <!-- Page level plugins -->
     <script src="{{ asset('js/vendor/chart.js/Chart.min.js') }}"></script>
 
-    <!-- Page level custom scripts -->
-    {{-- <script src="{{ asset('js/demo/chart-total-terapi.js') }}"></script> --}}
-    {{-- <script src="{{ asset('js/demo/chart-jantung.js') }}"></script> --}}
-    {{-- <script src="{{ asset('js/demo/chart-durasi.js') }}"></script> --}}
-    {{-- <script src="{{ asset('js/demo/chart-kalori.js') }}"></script> --}}
-    {{-- <script src="{{ asset('js/demo/chart-saturasi.js') }}"></script> --}}
-    {{-- <script src="{{ asset('js/demo/chart-pedal.js') }}"></script> --}}
-
     @yield('jsekstra')
-
-    {{-- <script src="text/javascript" src="{{ 'js/jquery.min1.js' }}"></script> --}}
 
     @livewireStyles
     @stack('js')

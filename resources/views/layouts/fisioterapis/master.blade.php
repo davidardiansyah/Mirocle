@@ -29,9 +29,9 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-thin fa-brain"></i>
                 </div>
-                
+
                 <div class="sidebar-brand-text mx-3">MIROCLE </div>
-                
+
             </a>
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -82,6 +82,7 @@
                                 <span aria-hidden="true">×</span>
                             </button>
                         </div>
+
                         <div class="modal-body">Pilih "Logout" jika Anda ingin mengakhiri sesi ini.</div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
@@ -116,20 +117,10 @@
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span
                                         class="d-none d-lg-inline small mr-2 text-gray-600">{{ auth()->user()->name }}</span>
-                                    {{-- <img class="img-profile rounded-circle" src="img/undraw_profile.svg"> --}}
                                 </a>
-                                <!-- Dropdown - User Information -->
-                                {{-- <div class="dropdown-menu dropdown-menu-right animated--grow-in shadow"
-                                    aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Profile
-                                    </a>
-                                </div> --}}
                             </li>
-
                         </ul>
-
+                    </div>
                 </nav>
                 <!-- End of Topbar -->
 
@@ -144,6 +135,28 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+    <script src="{{ asset('js/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="{{ asset('js/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+
+    <!-- Page level plugins -->
+    <script src="{{ asset('js/vendor/chart.js/Chart.min.js') }}"></script>
+
+    @yield('jsekstra')
+
+
+    @livewireStyles
+    @stack('js')
 </body>
 
 </html>
