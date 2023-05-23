@@ -36,4 +36,4 @@ Route::get('/', function () {
     return redirect('login');
 })->middleware('guest');
 
-Route::get('/detakjantung', [SensorLaravel::class, 'detakjantung'])->name('detakjantung');
+Route::get('/detakjantung/{id}', [SensorLaravel::class, 'detakjantung'])->name('detakjantung');

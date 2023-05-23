@@ -9,11 +9,11 @@ use App\Models\User;
 
 class SensorLaravel extends Controller
 {
-    public function detakjantung()
+    public function detakjantung($id)
     {
-        $userId = auth()->user()->id;
-        $sensor = Msensor::whereHas('user', function ($query) use ($userId) {
-            $query->where('id', $userId);
+        // $userId = auth()->user()->id;
+        $sensor = Msensor::whereHas('user', function ($query) use ($id) {
+            $query->where('id', $id);
         })->latest('id')->first();
         
         return response()->json($sensor);

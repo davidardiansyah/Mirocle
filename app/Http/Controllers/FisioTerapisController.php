@@ -11,6 +11,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Profile;
 use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Support\Facades\Auth;
 
 use function PHPUnit\Framework\throwException;
 
@@ -134,41 +135,40 @@ class FisioTerapisController extends Controller
     public function monitoring($id)
     {
         $profile = Profile::query()->where('user_id', '=', $id)->first();
-    
+
         $sensorData = SensorDataFinal::whereHas('user', function ($query) use ($id) {
             $query->where('user_id', $id);
         })
-        ->orderBy('id', 'desc')
-        ->take(5)
-        ->get();
-    
+            ->orderBy('id', 'desc')
+            ->take(5)
+            ->get();
+
         // Inisialisasi array untuk label dan jumlah terapi
         $labels = [];
         $totalTerapi = [];
-    
+
         // Loop melalui setiap data sensor
         foreach ($sensorData as $data) {
             // Ambil timestamp
             $timestamp = $data->timestamp;
-            
+
             // Ambil bulan dari timestamp
             $bulan = date('Y-m', strtotime($timestamp));
-            
+
             // Jika bulan belum ada dalam array labels, tambahkan ke array labels
             if (!in_array($bulan, $labels)) {
                 $labels[] = $bulan;
             }
-            
+
             // Hitung jumlah terapi berdasarkan bulan
             $jumlahTerapi = SensorDataFinal::where('user_id', $id)
                 ->whereMonth('timestamp', date('m', strtotime($timestamp)))
                 ->whereYear('timestamp', date('Y', strtotime($timestamp)))
                 ->count();
-            
+
             // Tambahkan jumlah terapi ke array totalTerapi
             $totalTerapi[] = $jumlahTerapi;
         }
-    
         return view('layouts.fisioterapis.monitoring', [
             'profile' => $profile,
             'labels' => $labels,

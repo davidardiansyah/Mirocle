@@ -17,44 +17,43 @@ class PasienController extends Controller
     public function index()
     {
         $profile = Profile::query()->where('user_id', '=', Auth::user()->id)->first();
-    
+
         // Ambil ID pengguna yang sedang login
         $userId = auth()->user()->id;
-    
+
         $sensorData = SensorDataFinal::whereHas('user', function ($query) use ($userId) {
             $query->where('user_id', $userId);
         })
-        ->orderBy('id', 'desc')
-        ->take(5)
-        ->get();
-    
+            ->orderBy('id', 'desc')
+            ->take(5)
+            ->get();
+
         // Inisialisasi array untuk label dan jumlah terapi
         $labels = [];
         $totalTerapi = [];
-    
+
         // Loop melalui setiap data sensor
         foreach ($sensorData as $data) {
             // Ambil timestamp
             $timestamp = $data->timestamp;
-            
+
             // Ambil bulan dari timestamp
             $bulan = date('Y-m', strtotime($timestamp));
-            
+
             // Jika bulan belum ada dalam array labels, tambahkan ke array labels
             if (!in_array($bulan, $labels)) {
                 $labels[] = $bulan;
             }
-            
+
             // Hitung jumlah terapi berdasarkan bulan
             $jumlahTerapi = SensorDataFinal::where('user_id', $userId)
                 ->whereMonth('timestamp', date('m', strtotime($timestamp)))
                 ->whereYear('timestamp', date('Y', strtotime($timestamp)))
                 ->count();
-            
+
             // Tambahkan jumlah terapi ke array totalTerapi
             $totalTerapi[] = $jumlahTerapi;
         }
-    
         return view('layouts.pasien.dashboard', [
             'profile' => $profile,
             'labels' => $labels,
@@ -68,7 +67,7 @@ class PasienController extends Controller
     }
 
     public function grafik()
-    {    
+    {
         return view('layouts.pasien.grafik');
     }
 
@@ -76,18 +75,18 @@ class PasienController extends Controller
     {
         $userId = auth()->user()->id; // Ambil ID pengguna yang sedang login
         $tanggal = $request->input('tanggal');
-        
+
         $query = SensorDataFinal::whereHas('user', function ($query) use ($userId) {
             $query->where('user_id', $userId);
         });
-        
+
         if ($tanggal) {
             $tanggal = Carbon::parse($tanggal);
             $query->whereDate('timestamp', $tanggal);
         }
-        
+
         $sensorDataFinal = $query->simplePaginate(10);
-        
+
         return view('layouts.pasien.riwayat', compact('sensorDataFinal', 'tanggal'));
     }
 
@@ -110,11 +109,11 @@ class PasienController extends Controller
         return view('/layouts/pasien/dashboard', compact('detakJantung'));
     }
 
-    public function exportexcel(){
+    public function exportexcel()
+    {
         $userId = auth()->user()->id; // Ambil ID pengguna yang sedang login
         $fileName = 'data_final.xlsx';
-    
+
         return Excel::download(new DataFinal($userId), $fileName);
     }
 }
-
