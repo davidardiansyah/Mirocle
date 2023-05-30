@@ -67,7 +67,7 @@ class FisioTerapisController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'device_id' => ['required', 'string', 'unique:users'],
+            'device_id' => ['required', 'string', 'max:255'],
         ]);
         $user = User::create([
             'name' => $request['name'],
@@ -146,4 +146,5 @@ class FisioTerapisController extends Controller
             'totalTerapi' => $totalTerapi
         ]);
     }
+    
 }

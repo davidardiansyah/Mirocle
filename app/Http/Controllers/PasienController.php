@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Exports\DataFinal;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\SensorData;
+use App\Models\User;
 use App\Models\SensorDataFinal;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Response;
@@ -18,9 +19,14 @@ class PasienController extends Controller
 {
     public function index()
     {
-        $profile = Profile::query()->where('user_id', '=', Auth::user()->id)->first();
         // Ambil ID pengguna yang sedang login
         $userId = auth()->user()->id;
+
+        // Periksa profil pengguna
+        $user = User::query()->where('id', $userId)->first();
+    
+        $profile = Profile::query()->where('user_id', '=', Auth::user()->id)->first();
+
         $sensorData = SensorDataFinal::whereHas('user', function ($query) use ($userId) {
             $query->where('user_id', $userId);
         })
@@ -54,14 +60,17 @@ class PasienController extends Controller
             'totalTerapi' => $totalTerapi
         ]);
     }
+
     public function biodata()
     {
         return view('layouts.pasien.biodata');
     }
+    
     public function grafik()
     {
         return view('layouts.pasien.grafik');
     }
+    
     public function riwayat(Request $request)
     {
         $userId = auth()->user()->id; // Ambil ID pengguna yang sedang login
@@ -103,10 +112,11 @@ class PasienController extends Controller
         $detakJantung = session('detakjantung');
         return view('/layouts/pasien/dashboard', compact('detakJantung'));
     }
+    
     public function exportexcel()
     {
         $userId = auth()->user()->id; // Ambil ID pengguna yang sedang login
         $fileName = 'data_final.xlsx';
         return Excel::download(new DataFinal($userId), $fileName);
-    }
+    }   
 }

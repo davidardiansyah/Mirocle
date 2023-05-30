@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('saturasi_oksigen')->nullable();
             $table->text('kalori')->nullable();
             $table->text('putaran_pedal')->nullable();
-            $table->timestamp('timestamp');
+            $table->timestamp('timestamp')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 
