@@ -55,7 +55,6 @@
                                             </span>
                                         @enderror
                                         <div class="form-group">
-
                                             <input type="password" name="password"
                                                 class="form-control form-control-user" id="exampleInputPassword"
                                                 placeholder="Enter Password">
@@ -74,20 +73,14 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 

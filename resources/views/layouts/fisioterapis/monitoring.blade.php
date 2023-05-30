@@ -7,14 +7,10 @@
 @section('content')
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
-
         <!-- Main Content -->
         <div id="content">
-
-
             <!-- Content Row -->
             <div class="row w-100 justify-content-center">
-
                 <!-- Detak jantung -->
                 <div class="col-auto mb-4">
                     <div class="card border-left-primary shadowy">
@@ -97,9 +93,7 @@
                 </div>
             </div>
             <!-- Content Row -->
-
             <div class="row">
-
                 {{-- DAERAH GRAFIK TOTAL TERAPI --}}
                 <div class="col-xl-8 col-lg-7">
                     <div class="card mb-4 shadow">
@@ -117,8 +111,6 @@
                         </div>
                     </div>
                 </div>
-
-
                 {{-- BIODATA PASIEN ADA DISINI  --}}
                 <div class="col-xl-4 col-lg-5">
                     <div class="card mb-4 shadow">
@@ -135,7 +127,7 @@
                                 </div>
                                 <div class="col-md-10 mx-10"><label class="labels">Nama :
                                         @if (Auth::check())
-                                            {{ Auth::user()->name }}
+                                            {{ Auth::user('2')->name }}
                                         @else
                                             '-'
                                         @endif
@@ -184,7 +176,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Scroll to Top Button-->
         <a class="scroll-to-top rounded" href="#page-top">
             <i class="fas fa-angle-up"></i>
@@ -214,10 +205,8 @@
                 });
             }, 1000); // 1000ms = 1s
         });
-
         var labels = @json($labels);
         var users = @json($totalTerapi);
-
         const data = {
             labels: labels,
             datasets: [{
@@ -227,13 +216,11 @@
                 data: users,
             }]
         };
-
         const config = {
             type: 'line',
             data: data,
             options: {}
         };
-
         const myChart = new Chart(
             document.getElementById('total-terapi'),
             config

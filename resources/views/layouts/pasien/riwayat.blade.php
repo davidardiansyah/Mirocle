@@ -29,10 +29,16 @@
                                 @foreach ($sensorDataFinal as $data)
                                     <tr>
                                         <td class="text-center">{{ $counter++ }}</td>
-                                        <td class="text-center">{{ $data->rata_rata_detak_jantung != 0 ? $data->rata_rata_detak_jantung : '-' }}</td>
-                                        <td class="text-center">{{ $data->rata_rata_saturasi_oksigen != 0 ? $data->rata_rata_saturasi_oksigen : '-' }}</td>
-                                        <td class="text-center">{{ $data->kalori_total != 0 ? $data->kalori_total : '-' }}</td>
-                                        <td class="text-center">{{ $data->putaran_pedal != 0 ? $data->putaran_pedal : '-' }}</td>
+                                        <td class="text-center">
+                                            {{ $data->rata_rata_detak_jantung != 0 ? $data->rata_rata_detak_jantung : '-' }}
+                                        </td>
+                                        <td class="text-center">
+                                            {{ $data->rata_rata_saturasi_oksigen != 0 ? $data->rata_rata_saturasi_oksigen : '-' }}
+                                        </td>
+                                        <td class="text-center">{{ $data->kalori_total != 0 ? $data->kalori_total : '-' }}
+                                        </td>
+                                        <td class="text-center">{{ $data->putaran_pedal != 0 ? $data->putaran_pedal : '-' }}
+                                        </td>
                                         <td class="text-center">{{ $data->durasi != 0 ? $data->durasi : '-' }}</td>
                                         <td class="text-center">{{ $data->timestamp }}</td>
                                     </tr>

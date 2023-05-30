@@ -48,8 +48,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Area Chart -->
         <!-- Area Chart -->
         <div class="col-xl-8 col-lg-7">
             <div class="card mb-4 shadow">
@@ -68,7 +66,6 @@
                 </div>
             </div>
         </div>
-
         <script>
             < script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" >
         </script>
@@ -76,7 +73,6 @@
         <script type="text/javascript">
             var labels = @json($labels);
             var terapiData = @json($totalPasienTerapi);
-
             const data = {
                 labels: labels,
                 datasets: [{
@@ -86,13 +82,11 @@
                     data: terapiData,
                 }]
             };
-
             const config = {
                 type: 'line',
                 data: data,
                 options: {}
             };
-
             const myChart = new Chart(
                 document.getElementById('jumlah-pasien'),
                 config

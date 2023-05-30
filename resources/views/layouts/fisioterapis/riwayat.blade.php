@@ -23,7 +23,6 @@
                             </tr>
                         </thead>
                         <tbody>
-
                             @foreach ($sensorDataFinal as $data)
                                 <tr>
                                     <td class="text-center">

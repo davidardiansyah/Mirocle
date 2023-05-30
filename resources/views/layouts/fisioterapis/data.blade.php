@@ -8,14 +8,13 @@
     <div id="content-wrapper" class="d-flex flex-column">
         <!-- Main Content -->
         <div id="content">
-
             <!-- Begin Page Content -->
             <div class="container-fluid">
                 <!-- DataTales Example -->
                 <div class="card mb-4 shadow">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table-bordered table" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th class="text-center">Nama</th>

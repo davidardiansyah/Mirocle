@@ -16,21 +16,23 @@
                         src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
                 </div>
                 <div class="p-3">
-
                     <form method="POST" action="{{ route('pasien.update_profile') }}">
                         @csrf
                         <div class="row">
                             <div class="col-md-12">
                                 <label class="labels">Nama</label>
-                                <input type="text" class="form-control" placeholder="Masukkan nama" value="{{ Auth::user()->name }}" disabled>
+                                <input type="text" class="form-control" placeholder="Masukkan nama"
+                                    value="{{ Auth::user()->name }}" disabled>
                             </div>
                             <div class="col-md-12">
                                 <label class="labels">Umur</label>
-                                <input type="text" name="umur" class="form-control" placeholder="Masukkan umur" value="">
+                                <input type="text" name="umur" class="form-control" placeholder="Masukkan umur"
+                                    value="">
                             </div>
                             <div class="col-md-12">
                                 <label class="labels">Berat Badan</label>
-                                <input type="text" name="berat_badan" class="form-control" placeholder="Masukkan berat badan" value="">
+                                <input type="text" name="berat_badan" class="form-control"
+                                    placeholder="Masukkan berat badan" value="">
                             </div>
                             <div class="col-md-12">
                                 <label class="labels">Jenis Kelamin</label>
@@ -41,13 +43,14 @@
                             </div>
                             <div class="col-md-12">
                                 <label class="labels">Riwayat Penyakit</label>
-                                <input type="text" name="riwayat_penyakit" class="form-control" placeholder="Masukkan riwayat penyakit" value="">
+                                <input type="text" name="riwayat_penyakit" class="form-control"
+                                    placeholder="Masukkan riwayat penyakit" value="">
                             </div>
                             <div class="col-md-12 mt-5 text-center">
                                 <button class="btn btn-primary profile-button" type="submit">Save Profile</button>
                             </div>
                         </div>
-                    </form>                    
+                    </form>
                 </div>
             </div>
         </div>

@@ -14,11 +14,9 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
 </head>
-
 <body id="page-top">
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -110,7 +108,6 @@
                         </div>
                         <!-- Topbar Navbar -->
                         <ul class="navbar-nav ml-auto">
-
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -122,39 +119,27 @@
                         </ul>
                     </div>
                 </nav>
-                <!-- End of Topbar -->
-
                 <!-- Content Row -->
                 @yield('content')
-
                 <!-- Scroll to Top Button-->
                 <a class="scroll-to-top rounded" href="#page-top">
                     <i class="fas fa-angle-up"></i>
                 </a>
-
             </div>
         </div>
     </div>
-
-
     <!-- Bootstrap core JavaScript-->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 
     <script src="{{ asset('js/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
     <!-- Core plugin JavaScript-->
     <script src="{{ asset('js/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
-
     <!-- Page level plugins -->
     <script src="{{ asset('js/vendor/chart.js/Chart.min.js') }}"></script>
-
     @yield('jsekstra')
-
-
     @livewireStyles
     @stack('js')
 </body>

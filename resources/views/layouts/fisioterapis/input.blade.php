@@ -13,15 +13,13 @@
                 <a class="btn btn-primary" href="{{ route('register') }}">
                     Tambahkan Pasien
                 </a>
-                
             </div>
         </div>
-
         <!-- DataTales Example -->
         <div class="card mb-4 shadow">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table-bordered table" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th class="text-center">Device id</th>
