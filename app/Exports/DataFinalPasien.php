@@ -8,13 +8,19 @@ use Illuminate\Database\Query\Builder;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class DataFinal implements FromQuery, WithHeadings, ShouldQueue
+class DataFinalPasien implements FromQuery, WithHeadings, ShouldQueue
 {
+    protected $userId;
+
+    public function __construct($userId)
+    {
+        $this->userId = $userId;
+    }
+
     public function query()
     {
-        $userId = auth()->user()->id;
-        return SensorDataFinal::select('waktu_mulai', 'waktu_selesai', 'rata_rata_detak_jantung','rata_rata_saturasi_oksigen', 'kalori_total', 'putaran_pedal', 'durasi')
-            ->where('user_id', $userId);
+        return SensorDataFinal::select('waktu_mulai', 'waktu_selesai', 'rata_rata_detak_jantung', 'rata_rata_saturasi_oksigen', 'kalori_total', 'putaran_pedal', 'durasi')
+            ->where('user_id', $this->userId);
     }
 
     public function headings(): array

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Profile;
 use App\Http\Controllers\Controller;
 use App\Exports\DataFinal;
+use App\Exports\DataFinalPasien;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\SensorData;
 use App\Models\User;

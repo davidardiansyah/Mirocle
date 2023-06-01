@@ -20,6 +20,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/riwayat-pasien', [FisioTerapisController::class, 'riwayat'])->name('fisioterapis.riwayat');
         Route::get('/grafik', [FisioTerapisController::class, 'grafik'])->name('fisioterapis.grafik');
         Route::get('/monitoring/{id}', [FisioTerapisController::class, 'monitoring'])->name('fisioterapis.monitoring');
+        Route::get('/exportExcelPasien/{id}', [FisioterapisController::class, 'exportExcelPasien'])->name('exportExcelPasien');
     });
 
     Route::prefix('pasien')->group(function () {

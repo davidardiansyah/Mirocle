@@ -20,6 +20,7 @@
                                 <th class="text-center">Jumlah Putaran Pedal (Putaran)</th>
                                 <th class="text-center">Durasi (Menit)</th>
                                 <th class="text-center">Dashboard</th>
+                                <th class="text-center">Unduh Data Pasien</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -48,6 +49,13 @@
                                     <td class="text-center">
                                         @if ($data->user)
                                             <a href="{{ route('fisioterapis.monitoring', $data->user->id) }}">Dashboard</a>
+                                        @else
+                                            N/A
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        @if ($data->user)
+                                            <a href="{{ route('exportExcelPasien', $data->user->id) }}">Unduh</a>
                                         @else
                                             N/A
                                         @endif
