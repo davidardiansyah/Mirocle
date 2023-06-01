@@ -108,13 +108,18 @@ class FisioTerapisController extends Controller
         );
         return view('layouts.fisioterapis.riwayat', compact('sensorDataFinal', 'pasien'));
     }
+
     public function grafik()
     {
         return view('layouts.fisioterapis.grafik');
     }
+
     public function monitoring($id)
     {
-        return view('layouts.fisioterapis.monitoring');
+    $user = User::find($id);
+    $nama = $user->name; // Ganti 'nama' dengan kolom nama yang sesuai di tabel users
+
+    return view('layouts.fisioterapis.monitoring', compact('nama'));
     }
     
     public function exportExcelPasien($id)

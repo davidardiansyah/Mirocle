@@ -1,7 +1,7 @@
 @extends('layouts.fisioterapis.master')
 
 @section('title')
-    Dashboard 
+    Dashboard - {{ $nama }}
 @endsection
 
 @section('content')
